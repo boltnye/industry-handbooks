@@ -1,0 +1,2794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🔬 2026 半导体产业认知手册</title>
+<style>
+
+:root { --bg:#fff;--text:#1a1a2e;--muted:#666;--card:#f8f9fa;--border:#e0e0e0;--accent:#e63946;--blue:#1d72b8;--green:#2e7d32; }
+@media (prefers-color-scheme:dark){ :root { --bg:#1a1a2e;--text:#e0e0e0;--muted:#aaa;--card:#222244;--border:#333; } }
+* { box-sizing:border-box;margin:0;padding:0; }
+body { font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.85; }
+.container { max-width:920px;margin:0 auto;padding:16px; }
+h2 { font-size:22px;margin:36px 0 16px;padding-bottom:8px;border-bottom:3px solid var(--accent); }
+h3 { font-size:18px;margin:24px 0 12px;color:var(--blue); }
+h4 { font-size:16px;margin:16px 0 8px; }
+.table-wrap { overflow-x:auto;margin:12px 0;border-radius:8px;border:1px solid var(--border); }
+table { width:100%;border-collapse:collapse;font-size:13px;margin:12px 0;border-radius:8px;overflow:hidden; }
+th { background:#1a1a2e;color:#fff;padding:10px 8px;text-align:left;font-weight:600;font-size:12px;white-space:nowrap; }
+td { padding:8px;border-bottom:1px solid var(--border); }
+tr:nth-child(even) { background:var(--card); }
+tr:hover { background:#e3f2fd; }
+@media (prefers-color-scheme:dark){ tr:hover { background:#2a2a4a; } }
+blockquote { border-left:4px solid #fdd835;background:#fffde7;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14px; }
+code { background:var(--card);padding:2px 6px;border-radius:4px;font-size:13px; }
+pre { background:var(--card);border-radius:8px;padding:14px 18px;font-family:"Courier New",monospace;font-size:12px;line-height:1.6;overflow-x:auto;white-space:pre;margin:8px 0;border:1px solid var(--border); }
+.stars { color:#f9a825;letter-spacing:1px; }
+@media (max-width:600px){ table{font-size:11px} th,td{padding:6px 4px} pre{font-size:10px} }
+
+
+/* Tab system */
+.tab-system { max-width:960px;margin:0 auto;padding:0; }
+.cover {
+  text-align:center;padding:40px 16px 24px;
+  background:linear-gradient(135deg,#1a1a2e 0%,#16213e 40%,#0f3460 70%,#1a3a5c 100%);
+  color:#fff;position:relative;overflow:hidden;
+}
+.cover h1 { font-size:clamp(22px,5vw,32px);margin-bottom:6px;position:relative;z-index:1; }
+.cover .subtitle { font-size:14px;opacity:.8;margin-bottom:4px;position:relative;z-index:1; }
+.cover .meta { font-size:12px;opacity:.55;position:relative;z-index:1; }
+
+.tab-bar {
+  display:flex;position:sticky;top:0;z-index:200;
+  background:var(--bg);border-bottom:2px solid var(--border);
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+}
+.tab-btn {
+  flex:1 0 auto;min-width:fit-content;padding:12px 14px;
+  border:none;background:transparent;color:var(--muted);
+  cursor:pointer;font-size:13px;font-weight:600;font-family:inherit;
+  white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;
+  transition:all .2s;display:flex;align-items:center;gap:6px;justify-content:center;
+}
+.tab-btn:hover { color:var(--text);background:var(--card); }
+.tab-btn.active { color:var(--accent);border-bottom-color:var(--accent); }
+.tab-icon { font-size:16px; }
+@media (max-width:600px) { .tab-btn { padding:10px 8px;font-size:11px; } .tab-icon { font-size:14px; } }
+
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+
+.quick-nav {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;max-width:920px;margin:0 auto 24px;padding:16px;
+}
+.quick-card {
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:20px;cursor:pointer;transition:all .2s;text-align:center;
+}
+.quick-card:hover { border-color:var(--accent);box-shadow:0 4px 12px rgba(0,0,0,0.08);transform:translateY(-2px); }
+.quick-card .qc-icon { font-size:36px;margin-bottom:8px;display:block; }
+.quick-card .qc-title { font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px; }
+.quick-card .qc-desc { font-size:12px;color:var(--muted); }
+
+.unified-footer {
+  text-align:center;padding:32px 16px;color:var(--muted);font-size:12px;
+  border-top:1px solid var(--border);margin-top:40px;
+}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <h1>🔬 2026 半导体产业认知手册</h1>
+  <p class="subtitle">从沙子到芯片 · 全球巨头格局 · 中国国产突围 · 汽车芯片战场 · 中美科技博弈</p>
+  <p class="meta">数据基准：2025 全年 + 2026 上半年 | 报告日期：2026.07</p>
+</div>
+
+<!-- 10 个必记数字 -->
+<div style="max-width:920px;margin:0 auto;padding:4px 16px 0;">
+<div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 20px;">
+<div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px;text-align:center;">🔢 10 个必记数字</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:6px;font-size:12px;">
+<div>📊 全球市场 <b style="color:var(--accent);">7,930 亿$</b></div>
+<div>🏭 一座晶圆厂 <b style="color:var(--accent);">200-300 亿$</b></div>
+<div>🔦 EUV光刻机 <b style="color:var(--accent);">3.8 亿$</b>/台</div>
+<div>🧠 NVIDIA AI GPU 市占 <b style="color:var(--accent);">&gt;90%</b></div>
+<div>🏗️ 台积电代工 <b style="color:var(--accent);">68%</b>（先进 &gt;90%）</div>
+<div>💾 ARM 手机 CPU IP <b style="color:var(--accent);">~95%</b></div>
+<div>🇨🇳 中国设备国产化率 <b style="color:var(--accent);">21%</b></div>
+<div>📱 一台手机含芯片 <b style="color:var(--accent);">10-20</b> 颗</div>
+<div>🚗 一辆智能电动车 <b style="color:var(--accent);">1,000-3,000</b> 颗</div>
+<div>⚡ SiC 效率 vs 硅 <b style="color:var(--accent);">97% vs 88%</b></div>
+</div>
+</div>
+</div>
+
+<div class="quick-nav">
+  <div class="quick-card" onclick="switchTab('a')"><span class="qc-icon">🔬</span><div class="qc-title">半导体入门</div><div class="qc-desc">从沙子到芯片：零基础搞懂半导体是什么、怎么造、谁在做什么</div></div><div class="quick-card" onclick="switchTab('b')"><span class="qc-icon">🌍</span><div class="qc-title">全球市场与巨头</div><div class="qc-desc">2025年7,930亿美元市场、前十排名、NVIDIA/台积电/Intel深度剖析</div></div><div class="quick-card" onclick="switchTab('c')"><span class="qc-icon">🇨🇳</span><div class="qc-title">中国半导体突围</div><div class="qc-desc">美国制裁全记录、国产化率翻倍、中芯国际/华为、光刻机差距</div></div><div class="quick-card" onclick="switchTab('d')"><span class="qc-icon">🚗</span><div class="qc-title">汽车芯片战场</div><div class="qc-desc">自动驾驶算力军备竞赛、SiC碳化硅革命、MCU、软件定义汽车</div></div><div class="quick-card" onclick="switchTab('e')"><span class="qc-icon">🔮</span><div class="qc-title">中美博弈与趋势</div><div class="qc-desc">两个半导体世界、全球供应链分裂、2nm竞赛、2026-2030预测</div></div>
+</div>
+
+<div class="tab-system">
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('a')" data-tab="a"><span class="tab-icon">🔬</span><span class="tab-label">半导体入门</span></button><button class="tab-btn " onclick="switchTab('b')" data-tab="b"><span class="tab-icon">🌍</span><span class="tab-label">全球市场与巨头</span></button><button class="tab-btn " onclick="switchTab('c')" data-tab="c"><span class="tab-icon">🇨🇳</span><span class="tab-label">中国半导体突围</span></button><button class="tab-btn " onclick="switchTab('d')" data-tab="d"><span class="tab-icon">🚗</span><span class="tab-label">汽车芯片战场</span></button><button class="tab-btn " onclick="switchTab('e')" data-tab="e"><span class="tab-icon">🔮</span><span class="tab-label">中美博弈与趋势</span></button>
+  </div>
+  <div class="tab-panel active" id="panel-a"><div class="container"><blockquote>
+<p><strong>面向零基础读者——搞懂芯片是什么、怎么造、谁在做什么</strong></p>
+<p>数据基准：2025-2026</p>
+</blockquote>
+<hr />
+<h2>目录</h2>
+<ol>
+<li><a href="#一什么是半导体">什么是半导体？</a></li>
+<li><a href="#二芯片怎么造">芯片是怎么造出来的？</a></li>
+<li><a href="#三三种商业模式">三种商业模式：IDM / Fabless / Foundry</a></li>
+<li><a href="#四产业链全景">产业链全景：7 大环节逐一拆解</a>（①EDA ②IP核 ③材料 ④设备 ⑤IC设计 ⑥晶圆制造⭐ ⑦封测）</li>
+<li><a href="#五工艺节点">什么是"工艺节点"？7nm、5nm、3nm 表示什么？</a></li>
+<li><a href="#六芯片种类">芯片有哪些种类？</a></li>
+<li><a href="#七Chiplet">Chiplet 与先进封装：后摩尔时代的关键技术</a></li>
+</ol>
+<hr />
+<h2>一、什么是半导体？</h2>
+<h3>1.1 一句话</h3>
+<p><strong>半导体 = 导电性介于导体（铜/铝）和绝缘体（橡胶/玻璃）之间的材料。</strong></p>
+<p>最常见的是<strong>硅（Silicon）</strong>——从沙子中提炼。通过精密加工，在指甲盖大小的硅片上做出<strong>数十亿个微型电子开关（晶体管）</strong>，这就是<strong>芯片（Chip）</strong>。</p>
+<pre><code>导体（铜）    → 电流畅通无阻
+半导体（硅）  → 可控制通断 ← 这就是&quot;开关&quot;的基础
+绝缘体（玻璃）→ 电流完全不通
+</code></pre>
+<h3>1.2 为什么硅？</h3>
+<p>硅有三个关键优势：<br />
+- <strong>储量丰富</strong>：沙子的主要成分就是二氧化硅<br />
+- <strong>化学稳定</strong>：可以形成极高质量的绝缘层（二氧化硅）<br />
+- <strong>可控掺杂</strong>：加入微量其他元素（硼/磷）就能精确改变导电性</p>
+<h3>1.3 关键术语</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>术语</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>芯片 / IC</td>
+<td>集成电路，在一个硅片上集成了大量晶体管</td>
+</tr>
+<tr>
+<td>晶体管</td>
+<td>电子开关，芯片的基本单元——现代芯片上有<strong>数十亿个</strong></td>
+</tr>
+<tr>
+<td>晶圆（Wafer）</td>
+<td>圆形的薄硅片，直径通常 200mm 或 300mm，上面同时制造几百颗芯片</td>
+</tr>
+<tr>
+<td>Die（裸片）</td>
+<td>从晶圆上切割下来的单个芯片</td>
+</tr>
+<tr>
+<td>摩尔定律</td>
+<td>芯片上的晶体管数量每 18-24 个月翻一倍（已放缓）</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>二、芯片是怎么造出来的？</h2>
+<h3>2.1 简化版流程</h3>
+<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0;font-size:12px;">
+<div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;text-align:center;flex:1 1 120px;"><b>🏖️ 沙子</b><br>SiO₂ 提纯</div>
+<div style="font-size:18px;color:var(--accent);">→</div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;text-align:center;flex:1 1 120px;"><b>🔮 单晶硅棒</b><br>完美晶体排列</div>
+<div style="font-size:18px;color:var(--accent);">→</div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;text-align:center;flex:1 1 120px;"><b>💿 晶圆</b><br>银色光盘状</div>
+<div style="font-size:18px;color:var(--accent);">→</div>
+<div style="background:#fff3cd;border:2px solid #f57c00;border-radius:10px;padding:10px 14px;text-align:center;flex:1 1 140px;"><b>🔦 光刻 · 最核心！</b><br>激光"印"电路<br>一台$3.8亿 180吨</div>
+<div style="font-size:18px;color:var(--accent);">→</div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;text-align:center;flex:1 1 120px;"><b>🔁 蚀刻·掺杂·沉积</b><br>重复几百次</div>
+<div style="font-size:18px;color:var(--accent);">→</div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;text-align:center;flex:1 1 120px;"><b>✂️ 测试·切割</b><br>分成单个 Die</div>
+<div style="font-size:18px;color:var(--accent);">→</div>
+<div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 14px;text-align:center;flex:1 1 120px;"><b>📦 封装·终测</b><br>塑料/陶瓷包覆</div>
+<div style="font-size:18px;color:var(--accent);">→</div>
+<div style="background:#d4edda;border:2px solid #2e7d32;border-radius:10px;padding:10px 14px;text-align:center;flex:1 1 120px;"><b>💾 成品芯片</b><br>手机/电脑/汽车</div>
+</div>
+
+<h3>2.2 制造有多难？</h3>
+<ul>
+<li><strong>洁净度要求</strong>：芯片工厂的空气每立方米不允许超过 10 颗尘埃（手术室是 10 万颗）</li>
+<li><strong>精度要求</strong>：3nm 制程 = 在一个原子间距的精度上加工</li>
+<li><strong>成本</strong>：一座先进晶圆厂造价 <strong>200-300 亿美元</strong></li>
+<li><strong>工序</strong>：一颗先进芯片从裸硅到成品要经过 <strong>1000+ 道工序</strong>，耗时 <strong>3-4 个月</strong></li>
+</ul>
+<hr />
+<h2>三、三种商业模式</h2>
+<p>这是理解半导体产业最重要的框架：</p>
+<h3>3.1 IDM（Integrated Device Manufacturer，全产业链）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>特点</th>
+<th>自己设计 + 自己制造 + 自己封测</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优点</td>
+<td>全程控制质量，设计和工艺协同优化</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td><strong>极其烧钱</strong>——养活一座先进工厂要几百亿美元</td>
+</tr>
+<tr>
+<td>代表</td>
+<td><strong>Intel、三星、德州仪器（TI）</strong></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>Intel 坚持 IDM 模式 50 年，但近年因为制造落后台积电而陷入危机。</p>
+</blockquote>
+<h3>3.2 Fabless（无工厂芯片设计公司）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>特点</th>
+<th>只设计芯片，制造交给代工厂</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优点</td>
+<td>轻资产、专注创新、不用养工厂</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>依赖代工厂产能，无法控制制造环节</td>
+</tr>
+<tr>
+<td>代表</td>
+<td><strong>NVIDIA、高通、AMD、苹果、博通、联发科</strong></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>🔑 这 6 家公司加起来市值超过 5 万亿美元，但<strong>没有一家有自己的工厂</strong>！</p>
+</blockquote>
+<h3>3.3 Foundry（晶圆代工厂）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>特点</th>
+<th>不设计芯片，专门为别人代工生产</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优点</td>
+<td>规模化效应，一套工艺服务几十家客户</td>
+</tr>
+<tr>
+<td>缺点</td>
+<td>利润率低于芯片设计（25% vs 50%+）</td>
+</tr>
+<tr>
+<td>代表</td>
+<td><strong>台积电（TSMC）、三星、联电、中芯国际（SMIC）</strong></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>🔑 <strong>分工模式是现代半导体产业的基础</strong>。没有台积电的代工，就没有 NVIDIA 的 GPU、苹果的 A 系列芯片。</p>
+</blockquote>
+<h3>3.4 为什么分工？</h3>
+<div style="display:flex;flex-direction:column;gap:10px;margin:16px 0;">
+<div style="background:var(--card);border-left:4px solid #999;border-radius:0 10px 10px 0;padding:12px 16px;"><b style="color:var(--blue);">1960s</b> — 只有 IDM 模式，IC 公司自建工厂，建厂越来越贵</div>
+<div style="background:var(--card);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 16px;"><b style="color:var(--accent);">1987</b> — 台积电成立，首创"纯代工"模式——"你不用建工厂，我来帮你造"</div>
+<div style="background:var(--card);border-left:4px solid #1d72b8;border-radius:0 10px 10px 0;padding:12px 16px;"><b style="color:#1d72b8;">1990s</b> — Fabless 公司大量涌现（NVIDIA 1993、高通 1985），轻资产跑得更快</div>
+<div style="background:var(--card);border-left:4px solid #2e7d32;border-radius:0 10px 10px 0;padding:12px 16px;"><b style="color:#2e7d32;">2020s</b> — 台积电独霸先进制程（3nm以下90%+），连 Intel 都开始找台积电代工</div>
+</div>
+
+<hr />
+<h2>四、产业链全景：7 大环节逐一拆解</h2>
+<blockquote>
+<p>← 越往上游，技术壁垒越高、垄断越严重 →<br>整个产业链分 <strong>上游（工具+原料）→ 中游（设计+制造）→ 下游（封测）→ 终端（应用）</strong> 四层，共 7 个核心环节。</p>
+</blockquote>
+
+<!-- 总览图 -->
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0;font-size:12px;">
+<div style="background:var(--card);border:2px solid #f57c00;border-radius:12px;padding:16px 10px;text-align:center;">
+<div style="font-size:22px;font-weight:700;color:#f57c00;margin-bottom:8px;">🔧 上游</div>
+<div style="border-top:1px dashed var(--border);padding-top:8px;margin-top:8px;">
+<div style="margin-bottom:8px;"><b>① EDA 软件</b><br><span style="color:var(--muted);">Cadence · Synopsys</span></div>
+<div style="margin-bottom:8px;"><b>② IP 核</b><br><span style="color:var(--muted);">ARM · 芯原</span></div>
+<div style="margin-bottom:8px;"><b>③ 材料</b><br><span style="color:var(--muted);">硅片 · 光刻胶 · 气体</span></div>
+<div><b>④ 设备</b><br><span style="color:var(--muted);">光刻机 · 刻蚀 · 检测</span></div>
+</div></div>
+<div style="background:var(--card);border:2px solid #1d72b8;border-radius:12px;padding:16px 10px;text-align:center;">
+<div style="font-size:22px;font-weight:700;color:#1d72b8;margin-bottom:8px;">🏭 中游</div>
+<div style="border-top:1px dashed var(--border);padding-top:8px;margin-top:8px;">
+<div style="margin-bottom:8px;"><b>⑤ IC 设计</b><br><span style="color:var(--muted);">Fabless 模式</span></div>
+<div style="background:var(--bg);border-radius:6px;padding:6px;margin:6px 0;"><b>⑥ 晶圆制造 ⭐</b><br><span style="color:var(--accent);">Foundry 代工<br>最核心环节</span></div>
+</div></div>
+<div style="background:var(--card);border:2px solid #2e7d32;border-radius:12px;padding:16px 10px;text-align:center;">
+<div style="font-size:22px;font-weight:700;color:#2e7d32;margin-bottom:8px;">📦 下游</div>
+<div style="border-top:1px dashed var(--border);padding-top:8px;margin-top:8px;">
+<div><b>⑦ 封装测试</b><br><span style="color:var(--muted);">OSAT<br>日月光 · 长电科技</span></div>
+</div></div>
+<div style="background:var(--card);border:2px solid #7b1fa2;border-radius:12px;padding:16px 10px;text-align:center;">
+<div style="font-size:22px;font-weight:700;color:#7b1fa2;margin-bottom:8px;">📱 终端</div>
+<div style="border-top:1px dashed var(--border);padding-top:8px;margin-top:8px;">
+<div style="margin-bottom:4px;">手机 · 平板</div>
+<div style="margin-bottom:4px;">PC · 服务器</div>
+<div style="margin-bottom:4px;">🚗 汽车</div>
+<div style="margin-bottom:4px;">AI · 数据中心</div>
+<div style="margin-bottom:4px;">工业 · IoT</div>
+<div>航空航天</div>
+</div></div>
+</div>
+
+<hr>
+<h3>4.1 ① EDA 软件 ——"芯片设计的 Word + Photoshop"</h3>
+<blockquote>
+<p><strong>没有 EDA，连芯片的图纸都画不出来。</strong></p>
+</blockquote>
+<p>EDA（Electronic Design Automation，电子设计自动化）是工程师用来设计芯片电路的专业软件。现代芯片上有几百亿个晶体管，不可能靠手画——EDA 就是芯片设计界的"CAD 制图软件"。</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>维度</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><strong>做什么</strong></td><td>提供从架构设计 → 逻辑验证 → 物理布局 → 仿真的全流程工具，确保几百亿个晶体管的电路图"画对、画好"</td></tr>
+<tr><td><strong>为什么重要</strong></td><td>没有 EDA，芯片设计公司（NVIDIA、高通）的工程师无从下手。一套 EDA 软件年费可达 <strong>百万美元/人</strong></td></tr>
+<tr><td><strong>垄断程度</strong></td><td><strong>极高</strong>——Synopsys（美国）+ Cadence（美国）+ Mentor（德国西门子）三家合计占全球 ~75%</td></tr>
+<tr><td><strong>中国玩家</strong></td><td>华大九天（国产替代主力），但差距约 10 年以上</td></tr>
+<tr><td><strong>地缘风险</strong></td><td>2025 年 5 月，三大 EDA 厂商被要求停止支持中国大陆——"没有 EDA 等于设计师没了笔"</td></tr>
+</tbody>
+</table></div>
+
+<hr>
+<h3>4.2 ② IP 核 ——"芯片设计的乐高积木"</h3>
+<blockquote>
+<p><strong>芯片里很多功能模块是通用的，IP 核就是预先设计好、验证好的"功能积木"，买来直接拼。</strong></p>
+</blockquote>
+<p>设计一颗复杂的 SoC（系统级芯片，如手机 CPU），里面需要 CPU 核心、GPU 核心、USB 接口、蓝牙模块、内存控制器……如果把每个模块都从零设计一遍，一颗芯片要花 5 年以上。IP 核（Intellectual Property Core）解决了这个问题——它把通用的功能模块预先做好、验证好，芯片设计公司付费授权就能直接用。</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>维度</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><strong>做什么</strong></td><td>提供预先设计好的功能模块：CPU 核心（ARM）、GPU 核心（Imagination）、内存控制器、USB/蓝牙/WiFi 接口等</td></tr>
+<tr><td><strong>为什么重要</strong></td><td>省时间（从 5 年缩到 1-2 年）、降风险（已验证过的模块不会出错）。没有 ARM 的 CPU IP，全球 95% 的手机芯片根本设计不出来</td></tr>
+<tr><td><strong>垄断程度</strong></td><td><strong>ARM</strong>（英国/软银）统治手机 CPU IP，市占率 <strong>~95%</strong>。全球几乎每一部智能手机里都跑着 ARM 架构的 CPU</td></tr>
+<tr><td><strong>中国玩家</strong></td><td>芯原股份（中国 IP 龙头，但主要做接口类 IP，CPU 核心仍依赖 ARM 和 RISC-V）</td></tr>
+<tr><td><strong>变局</strong></td><td>RISC-V（开源 CPU 架构，不收授权费）正在崛起——中国押注 RISC-V 替代 ARM，不受美国出口管制</td></tr>
+</tbody>
+</table></div>
+
+<hr>
+<h3>4.3 ③ 材料 ——"造芯片的食材"</h3>
+<blockquote>
+<p><strong>日本在上游材料领域极其强势——2019 年日本对韩国限制光刻胶出口，三星差点停产。</strong></p>
+</blockquote>
+<p>半导体材料种类繁多，最关键的四大类：</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>材料</th><th>干什么用</th><th>全球垄断者</th><th>垄断程度</th></tr></thead>
+<tbody>
+<tr><td><strong>硅片（Wafer）</strong></td><td>芯片的地基——99.9999999%（9 个 9）纯度的单晶硅圆片，直径 300mm</td><td>日本信越化学、日本 SUMCO</td><td>两家占全球 50%+</td></tr>
+<tr><td><strong>光刻胶（Photoresist）</strong></td><td>光刻时涂在晶圆上的感光材料，类似胶卷底片——光一照就发生化学变化</td><td>日本 JSR、东京应化、住友化学</td><td>日本企业占 ~90%</td></tr>
+<tr><td><strong>特种气体</strong></td><td>蚀刻和清洗晶圆用的高纯度气体（氟化氢、氯气等），纯度要求极高（99.99999%）</td><td>日本大阳日酸、美国 Air Products、法国液化空气</td><td>日美法三国统治</td></tr>
+<tr><td><strong>掩模版（光罩）</strong></td><td>电路图案的"底片"——光刻时，光透过掩模版把图案投射到晶圆上</td><td>日本凸版印刷、美国 Photronics</td><td>高度集中</td></tr>
+</tbody>
+</table></div>
+
+<blockquote>
+<p>🔑 <strong>为什么是日本？</strong> 日本在精密化工领域积累了几十年——高纯度、零缺陷、批次一致性。这些东西看似不起眼，但纯度差 0.00001%，芯片良率就可能从 95% 掉到 20%。2019 年日韩贸易战，日本限制三种半导体材料对韩出口，三星半导体部门差点休克——这就是"小材料、大威力"。</p>
+</blockquote>
+
+<hr>
+<h3>4.4 ④ 设备 ——"造芯片的机器"</h3>
+<blockquote>
+<p><strong>整个产业链中最硬核、最垄断的环节。一台 EUV 光刻机卖 3.8 亿美元，全球只有一家公司能造。</strong></p>
+</blockquote>
+<p>芯片制造需要四大类核心设备：</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>设备</th><th>干什么用</th><th>全球垄断者</th><th>垄断程度</th></tr></thead>
+<tbody>
+<tr><td><strong>🔦 光刻机</strong></td><td>把电路图案"印"到晶圆上——整个制造流程<strong>最核心、最贵、最难</strong>的设备</td><td><strong>ASML</strong>（荷兰）</td><td>高端 EUV：<strong>100%</strong><br>DUV：~90%</td></tr>
+<tr><td><strong>🔪 刻蚀机</strong></td><td>把不需要的材料"挖掉"——用等离子体在晶圆上刻出纳米级沟槽</td><td>Lam Research（美）~47%、东京电子 ~25%</td><td>美日双头垄断</td></tr>
+<tr><td><strong>💨 沉积设备</strong></td><td>在晶圆表面"镀"一层薄膜（金属/绝缘材料）——CVD（化学气相沉积）、PVD（物理气相沉积）</td><td>应用材料 Applied Materials（美）</td><td>~45%</td></tr>
+<tr><td><strong>🔍 检测设备</strong></td><td>检查晶圆上有没有缺陷——一颗灰尘就能毁掉一颗芯片</td><td>KLA（美）</td><td>~55%</td></tr>
+</tbody>
+</table></div>
+
+<h4>光刻机为什么是"神"？</h4>
+<ul>
+<li>一台 ASML 的 EUV 光刻机售价约 <strong>3.8 亿美元</strong>（比一架波音 787 还贵）</li>
+<li>重 <strong>180 吨</strong>，零件 <strong>10 万+</strong> 个，来自全球 <strong>5,000+</strong> 供应商</li>
+<li>运输需要 <strong>40 个集装箱 + 3 架波音 747 货机</strong></li>
+<li>ASML 每年只能生产 ~50 台 EUV，台积电一家买走大半</li>
+<li><strong>德国蔡司</strong>（Zeiss）独家供应 EUV 光刻机里的光学镜片——全世界只有蔡司能磨出表面误差小于一个原子直径的镜片</li>
+<li>没有 EUV 光刻机 = 3nm/5nm 芯片造不出来 = 没有最新款 iPhone、没有 NVIDIA B200</li>
+</ul>
+
+<blockquote>
+<p>🔑 <strong>一句话：ASML 是全球半导体产业的"单点故障源"。它一停，全球先进芯片制造全停。</strong></p>
+</blockquote>
+
+<hr>
+<h3>4.5 ⑤ IC 设计 ——"画图纸的人"</h3>
+<blockquote>
+<p><strong>Fabless 公司只设计芯片、不制造——6 家公司市值超 5 万亿美元，没有一家有自己的工厂。</strong></p>
+</blockquote>
+<p>IC 设计公司用 EDA 软件 + IP 核，根据客户需求设计出芯片的电路蓝图。这是半导体产业中<strong>利润最高</strong>的环节（NVIDIA 毛利率 70%+），也是最"轻资产"的模式。</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>维度</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><strong>做什么</strong></td><td>从需求定义 → 架构设计 → RTL 编码 → 仿真验证 → 物理设计 → 流片（交付代工厂生产），整个流程 1-3 年</td></tr>
+<tr><td><strong>为什么利润高</strong></td><td>轻资产——不需要几百亿美元的工厂，核心资产是<strong>工程师的大脑</strong>。卖芯片的边际成本极低（一颗 H100 卖 $30,000，制造成本 $3,000）</td></tr>
+<tr><td><strong>全球格局</strong></td><td><strong>美国绝对主导</strong>：NVIDIA（AI GPU）、高通（手机 SoC）、AMD（CPU+GPU）、博通（网络芯片）、苹果（自研 SoC）——Fabless 前十中美国占 7 家</td></tr>
+<tr><td><strong>中国格局</strong></td><td>华为海思（最强，7nm 麒麟回归）、海光信息（x86 CPU）、寒武纪（AI 芯片）、地平线（自动驾驶芯片）、摩尔线程（GPU）</td></tr>
+<tr><td><strong>趋势</strong></td><td>越来越多的系统公司（苹果、特斯拉、华为、亚马逊、谷歌）开始<strong>自研芯片</strong>——不买通用的，自己设计专属芯片</td></tr>
+</tbody>
+</table></div>
+
+<blockquote>
+<p>💡 <strong>打个比方</strong>：IC 设计公司就像<strong>建筑师事务所</strong>——画好图纸（芯片设计），交给施工队（代工厂）去盖。建筑师不需要自己有施工队，但设计能力决定了大楼的品质。</p>
+</blockquote>
+
+<hr>
+<h3>4.6 ⑥ 晶圆制造 ⭐ ——"最核心、最烧钱的环节"</h3>
+<blockquote>
+<p><strong>图纸画得再好，造不出来等于零。台积电一家占先进制程（7nm 以下）代工 ~90%。</strong></p>
+</blockquote>
+<p>晶圆制造就是把设计公司的电路蓝图，在硅晶圆上"施工"成真实的芯片。这是整个产业链中：</p>
+<ul>
+<li><strong>技术最难</strong>：一颗芯片经过 1000+ 道工序，耗时 3-4 个月</li>
+<li><strong>投资最大</strong>：一座先进晶圆厂造价 <strong>200-300 亿美元</strong>（比一艘航母还贵）</li>
+<li><strong>垄断最强</strong>：台积电一家独大，先进制程份额 >90%</li>
+</ul>
+
+<div class="table-wrap"><table>
+<thead><tr><th>工厂</th><th style="text-align:center">最先进制程</th><th style="text-align:center">全球代工份额</th><th>特点</th></tr></thead>
+<tbody>
+<tr><td><strong>台积电 TSMC</strong></td><td style="text-align:center"><strong>3nm 量产<br>2nm 2025 试产</strong></td><td style="text-align:center"><strong>68%</strong></td><td>纯代工模式开创者，客户包括 Apple/NVIDIA/AMD/Qualcomm/Intel。先进制程良率 ~90%，三星只有 ~50%</td></tr>
+<tr><td><strong>三星 Samsung</strong></td><td style="text-align:center">3nm（良率低）</td><td style="text-align:center">~12%</td><td>唯一同时在存储芯片和代工两个战场作战的公司。良率问题导致大客户流失</td></tr>
+<tr><td><strong>Intel</strong></td><td style="text-align:center">5nm</td><td style="text-align:center">—</td><td>正从 IDM 转型做代工（Intel Foundry），但制造工艺落后台积电 2-3 年</td></tr>
+<tr><td><strong>中芯国际 SMIC</strong></td><td style="text-align:center">7nm（DUV 硬做<br>良率 ~33%）</td><td style="text-align:center">~5%</td><td>中国芯片制造唯一希望，没有 EUV 光刻机，7nm 是极限</td></tr>
+<tr><td>联电 UMC</td><td style="text-align:center">14nm</td><td style="text-align:center">~5%</td><td>专注成熟制程，不追赶先进制程</td></tr>
+</tbody>
+</table></div>
+
+<blockquote>
+<p>🔑 <strong>关键认知：分工是现代半导体的基础。</strong> 没有台积电的代工，就没有 NVIDIA 的 GPU（全球 AI 训练靠它）、没有苹果的 A 系列芯片（你的 iPhone 靠它）。NVIDIA 市值全球第一，但它一颗芯片都不自己造——全部台积电生产。这就是"建筑师"和"施工队"分工的力量。</p>
+</blockquote>
+
+<hr>
+<h3>4.7 ⑦ 封装测试 ——"把芯片包起来、测试好"</h3>
+<blockquote>
+<p><strong>芯片极端脆弱，不封装一碰就坏。先进封装如今成了 AI 芯片的产能瓶颈。</strong></p>
+</blockquote>
+<p>芯片从晶圆上切割下来后是一块裸露的硅片（Die），脆弱得像蝴蝶翅膀——需要包上塑料或陶瓷外壳，引出引脚，才能焊到电路板上。</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>维度</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><strong>封装做什么</strong></td><td>把裸芯片用塑料/陶瓷包起来 → 引出金属引脚 → 提供散热和保护 → 让芯片能和电路板连接</td></tr>
+<tr><td><strong>测试做什么</strong></td><td>在封装前后各测一次：功能是否正常？速度达标吗？有没有坏点？——不良品淘汰</td></tr>
+<tr><td><strong>全球格局</strong></td><td>日月光 ASE（台湾，~30%，全球第一）、安靠 Amkor（美国）、<strong>长电科技 JCET</strong>（中国大陆，全球第 3）</td></tr>
+<tr><td><strong>中国竞争力</strong></td><td>✅ 封装是中国半导体在国际上<strong>最有竞争力</strong>的环节——全球前十有 4 家中国企业（长电、通富、华天、智路）</td></tr>
+<tr><td><strong>为什么突然变重要</strong></td><td><strong>先进封装（CoWoS）</strong>成了 AI 芯片的瓶颈——NVIDIA GPU 不是芯片造不出来，而是台积电的 CoWoS 封装产能不够！2024-2025 年台积电疯狂扩产 CoWoS，产能翻倍仍不够用</td></tr>
+</tbody>
+</table></div>
+
+<blockquote>
+<p>💡 <strong>打个比方</strong>：晶圆厂是"印刷厂"把电路印在硅片上，封装测试就是"裁切 + 装订 + 质检"——把一页页纸变成一本能卖的书。先进封装（如 CoWoS、3D 堆叠）则是把多本书叠在一起装订，空间利用率翻倍，性能提升 50%+。</p>
+</blockquote>
+
+<hr>
+<h3>4.8 一张图总结</h3>
+<div style="background:var(--card);border:2px solid var(--border);border-radius:14px;padding:20px;margin:16px 0;font-size:13px;overflow-x:auto;">
+<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;min-width:800px;">
+<div style="background:#fff3cd;border:2px solid #f57c00;border-radius:10px;padding:14px 16px;text-align:center;flex:1 1 140px;"><b style="color:#f57c00;font-size:15px;">🔧 上游</b><br><span style="font-size:11px;color:var(--muted);">工具+原料</span><br><br>① EDA 软件<br>② IP 核<br>③ 材料<br>④ 设备</div>
+<div style="font-size:24px;color:var(--accent);">→</div>
+<div style="background:var(--card);border:2px solid #1d72b8;border-radius:10px;padding:14px 16px;text-align:center;flex:1 1 160px;"><b style="color:#1d72b8;font-size:15px;">🏭 中游</b><br><span style="font-size:11px;color:var(--muted);">设计+制造</span><br><br>⑤ IC 设计（画图纸）<br>⑥ 晶圆制造 ⭐（施工）</div>
+<div style="font-size:24px;color:var(--accent);">→</div>
+<div style="background:var(--card);border:2px solid #2e7d32;border-radius:10px;padding:14px 16px;text-align:center;flex:1 1 140px;"><b style="color:#2e7d32;font-size:15px;">📦 下游</b><br><span style="font-size:11px;color:var(--muted);">包装+检验</span><br><br>⑦ 封装测试</div>
+<div style="font-size:24px;color:var(--accent);">→</div>
+<div style="background:var(--card);border:2px solid #7b1fa2;border-radius:10px;padding:14px 16px;text-align:center;flex:1 1 200px;"><b style="color:#7b1fa2;font-size:15px;">📱 终端应用</b><br><br>手机/PC/汽车<br>AI 数据中心/IoT</div>
+</div>
+</div>
+
+<blockquote>
+<p>🔑 <strong>记住这条链</strong>：EDA 和 IP 是笔和积木（上游工具） → 设计公司画图纸（中游设计） → 代工厂在硅片上施工（中游制造） → 封装测试包装检验（下游） → 装进你手机和汽车里（终端）。<br><br><strong>上游卡脖子最狠</strong>（EDA、光刻机、材料被美日荷垄断），<strong>中游制造是咽喉</strong>（台积电一家说了算），<strong>下游封测中国最强</strong>（全球前十占四席）。</p>
+</blockquote>
+
+<hr>
+<h3>4.9 各环节全球霸主速查</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>环节</th>
+<th>全球第一</th>
+<th style="text-align: center;">市占率</th>
+<th>总部</th>
+<th>中国第一</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① EDA 软件</td>
+<td>Synopsys</td>
+<td style="text-align: center;">~35%</td>
+<td>美国</td>
+<td>华大九天（差距 10 年+）</td>
+</tr>
+<tr>
+<td>② CPU IP 核</td>
+<td><strong>ARM</strong></td>
+<td style="text-align: center;"><strong>~95%</strong></td>
+<td>英国/日本</td>
+<td>—（押注 RISC-V）</td>
+</tr>
+<tr>
+<td>③ 硅片</td>
+<td>信越化学</td>
+<td style="text-align: center;">~30%</td>
+<td>日本</td>
+<td>沪硅产业</td>
+</tr>
+<tr>
+<td>③ 光刻胶</td>
+<td>JSR</td>
+<td style="text-align: center;">~90%（日企合计）</td>
+<td>日本</td>
+<td>南大光电（刚起步）</td>
+</tr>
+<tr>
+<td>④ 光刻机</td>
+<td><strong>ASML</strong></td>
+<td style="text-align: center;"><strong>EUV 100%</strong></td>
+<td>荷兰</td>
+<td>—（落后 ~20 年）</td>
+</tr>
+<tr>
+<td>④ 刻蚀机</td>
+<td>Lam Research</td>
+<td style="text-align: center;">~47%</td>
+<td>美国</td>
+<td>中微半导体</td>
+</tr>
+<tr>
+<td>⑤ 芯片设计</td>
+<td><strong>NVIDIA</strong></td>
+<td style="text-align: center;">AI GPU >90%</td>
+<td>美国</td>
+<td>华为海思</td>
+</tr>
+<tr>
+<td>⑥ 晶圆代工</td>
+<td><strong>台积电</strong></td>
+<td style="text-align: center;"><strong>68%</strong>（先进 >90%）</td>
+<td>台湾</td>
+<td>中芯国际（~5%）</td>
+</tr>
+<tr>
+<td>⑦ 封装测试</td>
+<td>日月光 ASE</td>
+<td style="text-align: center;">~30%</td>
+<td>台湾</td>
+<td><strong>长电科技</strong>（全球第 3）</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>五、工艺节点：7nm、5nm、3nm 是什么？</h2>
+<h3>5.1 一句话</h3>
+<p><strong>"工艺节点"（Process Node）= 芯片上晶体管的最小特征尺寸。数字越小 = 晶体管越小 = 同样面积塞更多 = 性能更强、功耗更低。</strong></p>
+<pre><code>28nm ──── 14nm ──── 7nm ──── 5nm ──── 3nm ──── 2nm
+  │                                    │        │
+成熟制程 ─────────────────────→ 先进制程         │
+（家电/汽车MCU/电源管理）         （手机CPU/AI/GPU）  │
+                                            2025试产
+</code></pre>
+<h3>5.2 直观感受</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>制程</th>
+<th style="text-align: center;">晶体管密度（每平方毫米）</th>
+<th>代表产品</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>28nm</td>
+<td style="text-align: center;">~300 万</td>
+<td>汽车 MCU、家电芯片</td>
+</tr>
+<tr>
+<td>7nm</td>
+<td style="text-align: center;">~9,000 万</td>
+<td>AMD Zen 2 CPU、NVIDIA Orin</td>
+</tr>
+<tr>
+<td>5nm</td>
+<td style="text-align: center;">~1.7 亿</td>
+<td>Apple A15、华为麒麟 9000</td>
+</tr>
+<tr>
+<td>3nm</td>
+<td style="text-align: center;">~2.0 亿</td>
+<td>Apple A17 Pro、M3</td>
+</tr>
+<tr>
+<td>2nm</td>
+<td style="text-align: center;">更高</td>
+<td>2025 台积电试产</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>💡 一颗 3nm 芯片上，一平方毫米的面积塞了约 <strong>2 亿个晶体管</strong>。想象一下：在头发丝截面上建一座城市。</p>
+</blockquote>
+<h3>5.3 谁能量产什么制程？</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>制程</th>
+<th style="text-align: center;">台积电</th>
+<th style="text-align: center;">三星</th>
+<th style="text-align: center;">Intel</th>
+<th style="text-align: center;">中芯国际</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>28nm+</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>14nm</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td>7nm</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️（用旧DUV硬做）</td>
+</tr>
+<tr>
+<td>5nm</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅（2024）</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>3nm</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">⚠️（良率低）</td>
+<td style="text-align: center;">规划中</td>
+<td style="text-align: center;">❌</td>
+</tr>
+<tr>
+<td>2nm</td>
+<td style="text-align: center;">2025试产</td>
+<td style="text-align: center;">追赶中</td>
+<td style="text-align: center;">追赶中</td>
+<td style="text-align: center;">❌（无EUV）</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>六、芯片有哪些种类？</h2>
+<h3>6.1 按功能分</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>做什么</th>
+<th>代表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CPU</strong></td>
+<td>通用计算，"大脑"</td>
+<td>Intel Core、AMD Ryzen、Apple M系列</td>
+</tr>
+<tr>
+<td><strong>GPU</strong></td>
+<td>图形/并行计算，AI 训练核心</td>
+<td>NVIDIA H100/B200</td>
+</tr>
+<tr>
+<td><strong>存储芯片</strong></td>
+<td>存数据：DRAM（内存）、NAND（硬盘）、HBM（AI高速内存）</td>
+<td>Samsung、SK Hynix、Micron</td>
+</tr>
+<tr>
+<td><strong>SoC（系统级芯片）</strong></td>
+<td>把 CPU+GPU+内存+通信模块集成到一颗芯片上</td>
+<td>高通骁龙、苹果 A 系列、联发科天玑</td>
+</tr>
+<tr>
+<td><strong>MCU（微控制器）</strong></td>
+<td>简单的控制芯片，一辆车几十上百颗</td>
+<td>NXP、Renesas、英飞凌</td>
+</tr>
+<tr>
+<td><strong>功率芯片</strong></td>
+<td>控制大电流/高电压（电动车核心）</td>
+<td>英飞凌、ST、安森美</td>
+</tr>
+<tr>
+<td><strong>模拟芯片</strong></td>
+<td>处理现实世界的连续信号（温度/声音/光）</td>
+<td>德州仪器（TI）、ADI</td>
+</tr>
+</tbody>
+</table></div>
+<h3>6.2 按制造模式分</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>通用芯片</strong></td>
+<td>标准化产品，谁都能买（CPU、内存、MCU）</td>
+</tr>
+<tr>
+<td><strong>ASIC（专用芯片）</strong></td>
+<td>为特定客户定制的芯片（Google TPU、华为昇腾）</td>
+</tr>
+<tr>
+<td><strong>FPGA（可编程芯片）</strong></td>
+<td>出厂后还能重新编程的芯片（Xilinx/AMD 主导）</td>
+</tr>
+</tbody>
+</table></div>
+
+<h3>6.3 存储芯片深度：DRAM · NAND · HBM</h3>
+<blockquote>
+<p><strong>存储芯片占全球半导体 ~20%（1,600 亿美元），是第二大品类。AI 爆发让 HBM 成了最紧俏的芯片之一。</strong></p>
+</blockquote>
+<p>存储芯片分三大类，用途完全不同：</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>类型</th><th>全称</th><th>干什么用</th><th>特点</th><th>代表厂商</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>DRAM</strong></td>
+<td>动态随机存取内存</td>
+<td>电脑/服务器的"运行内存"——CPU 处理数据时的临时工作台</td>
+<td>断电就忘（易失性）、速度极快、容量适中</td>
+<td>Samsung（~40%）、SK Hynix、Micron——<strong>三家垄断 95%</strong></td>
+</tr>
+<tr>
+<td><strong>NAND Flash</strong></td>
+<td>闪存</td>
+<td>手机/电脑的"硬盘"——存照片、存文件、存系统</td>
+<td>断电不忘（非易失性）、速度比机械硬盘快百倍</td>
+<td>Samsung、SK Hynix、铠侠（原东芝）、Western Digital、Micron</td>
+</tr>
+<tr>
+<td><strong>HBM</strong></td>
+<td>高带宽内存</td>
+<td><strong>AI GPU 的"贴身助手"</strong>——垂直堆叠多层 DRAM，数据带宽是普通内存的 10 倍+</td>
+<td>贵（一片 ~$2,500）、必须和 GPU 封装在一起、AI 训练必备</td>
+<td><strong>SK Hynix（~50%）</strong>、Samsung（~40%）、Micron（~10%）</td>
+</tr>
+</tbody>
+</table></div>
+
+<h4>HBM 为什么是"AI 时代的黄金"？</h4>
+<p>训练一个 GPT-4 级别的 AI 模型，GPU 要做海量的矩阵运算。但 GPU 算得再快，如果数据来不及从内存里搬过来，GPU 就得干等着——这叫<strong>"内存墙"</strong>。</p>
+<p>HBM 的解决方案是：把多层 DRAM 像"盖楼"一样垂直堆叠，并通过一条超宽的数据通道直接和 GPU 连在一起。结果就是：</p>
+<ul>
+<li>数据带宽是普通 DDR5 内存的 <strong>10-15 倍</strong></li>
+<li>功耗反而降低 <strong>40%</strong></li>
+<li>和 GPU 封在一起，占用空间极小</li>
+</ul>
+
+<blockquote>
+<p>💡 <strong>一个直观的比喻</strong>：普通 DRAM 是"高速公路收费站"——一次只能过一辆车。HBM 是"100 条车道并排敞开"——数据同时狂奔。<br><br>
+🔑 <strong>地缘政治焦点</strong>：NVIDIA H100/B200 全用 SK Hynix 的 HBM3E。美国 2025 年要求 SK Hynix 限制对华 HBM 出口——HBM 成了继光刻机、EDA 之后第三个"卡脖子武器"。</p>
+</blockquote>
+
+<hr />
+<h2>七、Chiplet 与先进封装：后摩尔时代的关键技术</h2>
+<blockquote>
+<p><strong>晶体管越做越小快撞墙了——Chiplet 是"弯道超车"的新路径。</strong></p>
+</blockquote>
+
+<h3>7.1 什么是 Chiplet？</h3>
+<p>传统做法是把所有功能模块（CPU、GPU、内存控制器、I/O接口……）做在<strong>一颗大芯片</strong>上（单片式 SoC）。随着制程越来越先进，这颗大芯片越来越贵、良率越来越低。</p>
+<p><strong>Chiplet 的思路反了过来</strong>：把大芯片拆成多个小芯片（芯粒），每个小芯片用最合适的制程分别制造，然后通过先进封装"拼"在一起。</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>对比</th><th>传统单片 SoC</th><th>Chiplet（芯粒）</th></tr></thead>
+<tbody>
+<tr><td><strong>做法</strong></td><td>一颗大芯片塞进所有功能</td><td>多个小芯片拼在一起</td></tr>
+<tr><td><strong>成本</strong></td><td>芯片越大良率越低，成本指数级上升</td><td>小芯片良率高，总成本低 30-50%</td></tr>
+<tr><td><strong>灵活性</strong></td><td>每次改版整颗芯片重做</td><td>只换一个小芯片就能升级</td></tr>
+<tr><td><strong>制程选择</strong></td><td>全用最先进制程（贵）</td><td><strong>核心计算用 3nm，I/O 用 7nm 就行</strong></td></tr>
+<tr><td><strong>代表产品</strong></td><td>手机 SoC（高通骁龙、苹果 A 系列）</td><td>AMD Ryzen/EPYC、苹果 M 系列 Ultra、NVIDIA B200、Intel Meteor Lake</td></tr>
+</tbody>
+</table></div>
+
+<h3>7.2 为什么 Chiplet 是"后摩尔时代"的关键？</h3>
+<p>摩尔定律在放缓——从 7nm 到 5nm 到 3nm，每一代的性能提升越来越小，成本却越来越高。Chiplet 给了产业另一条路：<strong>不靠把晶体管做小，而靠把芯片"拼"得更聪明来提升性能。</strong></p>
+
+<blockquote>
+<p>💡 <strong>一个直观的比喻</strong>：传统 SoC = 在市中心建一座摩天大楼（贵、慢、风险大）。Chiplet = 在郊区分别建几个功能区，用高速地铁连起来（便宜、灵活、一个坏了不用全部推倒）。<br><br>
+🔑 <strong>中国机会</strong>：Chiplet 体系不依赖最先进制程——用两颗 14nm 芯片堆叠，性能可以接近一颗 7nm 芯片。这就是为什么中国把 Chiplet + 先进封装当作"绕过光刻机封锁"的关键路径之一。</p>
+</blockquote>
+
+<h3>7.3 先进封装：让 Chiplet 成为可能的技术</h3>
+<p>Chiplet 需要把多个小芯片"拼"在一起，这要求封装技术从"把芯片包起来"升级为<strong>"把芯片连起来"</strong>：</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>封装技术</th><th>发明者</th><th>特点</th><th>用在哪</th></tr></thead>
+<tbody>
+<tr><td><strong>CoWoS</strong></td><td>台积电</td><td>把多个芯片+ HBM 封装在一个硅中介层上——目前最主流</td><td>NVIDIA H100/B200、AMD MI300</td></tr>
+<tr><td><strong>EMIB</strong></td><td>Intel</td><td>用嵌入式硅桥连接芯片，不占用芯片面积</td><td>Intel 数据中心 GPU</td></tr>
+<tr><td><strong>Foveros 3D</strong></td><td>Intel</td><td>芯片垂直堆叠，真正的"3D 芯片"</td><td>Intel Meteor Lake</td></tr>
+<tr><td><strong>Hybrid Bonding</strong></td><td>台积电/索尼</td><td>铜对铜直接键合，间距 < 1μm——最前沿</td><td>AMD 3D V-Cache、iPhone 摄像头</td></tr>
+</tbody>
+</table></div>
+
+<blockquote>
+<p>⚠️ <strong>CoWoS 产能危机</strong>：2024-2025 年，NVIDIA GPU 最缺的不是芯片本身，而是台积电的 CoWoS 封装产能。台积电 2025 年 CoWoS 产能翻倍仍不够用——先进封装成了 AI 时代的新瓶颈。</p>
+</blockquote>
+
+<hr />
+<blockquote>
+<p>🔑 <strong>记住四个关键词</strong>：Fabless（设计）+ Foundry（制造）+ 先进制程（7nm以下）+ Chiplet（芯粒）= 现代半导体产业</p>
+</blockquote>
+<p><em>报告完成日期：2026年7月14日</em></p></div></div><div class="tab-panel " id="panel-b"><div class="container"><blockquote>
+<p><strong>2025 年 7,930 亿美元的市场——谁是玩家？钱在哪？</strong></p>
+<p>数据基准：2025 全年 + 2026 上半年</p>
+</blockquote>
+<hr />
+<h2>目录</h2>
+<ol>
+<li><a href="#一市场全景">市场全景</a>（含半导体周期）</li>
+<li><a href="#二全球前十排名">2025 全球前十排名</a></li>
+<li><a href="#三巨头深度剖析">巨头深度剖析</a>（NVIDIA·台积电·Intel·AMD·Samsung·SK Hynix·博通）</li>
+<li><a href="#四产业链利润分配">产业链利润分配：谁赚钱最多？</a></li>
+<li><a href="#五钱流向了哪里">钱流向了哪里？</a></li>
+</ol>
+<hr />
+<h2>一、市场全景</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2025 全球半导体营收</strong></td>
+<td><strong>7,930 亿美元</strong></td>
+<td>Gartner</td>
+</tr>
+<tr>
+<td>同比增长</td>
+<td><strong>+21%</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>AI 半导体占比</td>
+<td>近 <strong>1/3</strong> 总销售额</td>
+<td>—</td>
+</tr>
+<tr>
+<td>AI 处理器销售额</td>
+<td>突破 <strong>2,000 亿美元</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>HBM 内存销售额</td>
+<td>突破 <strong>300 亿美元</strong>（占 DRAM 23%）</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>2026 AI 基础设施支出</strong></td>
+<td>预计突破 <strong>1.3 万亿美元</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>2030 年预测</td>
+<td>半导体产业总规模 <strong>1 万亿美元+</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>🔑 <strong>核心趋势</strong>：半导体产业正在变成"AI 半导体产业"——2029 年 AI 芯片将占总销售 50% 以上。</p>
+</blockquote>
+<h3>1.1 历史对比</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>年份</th>
+<th>全球营收</th>
+<th style="text-align: center;">增长</th>
+<th>驱动力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2019</td>
+<td>4,210亿$</td>
+<td style="text-align: center;">−12%</td>
+<td>存储芯片价格暴跌</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>4,660亿$</td>
+<td style="text-align: center;">+11%</td>
+<td>疫情居家，PC/平板需求激增</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>5,950亿$</td>
+<td style="text-align: center;">+26%</td>
+<td>芯片短缺，涨价潮</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>6,017亿$</td>
+<td style="text-align: center;">+1%</td>
+<td>消费电子需求降温</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>5,330亿$</td>
+<td style="text-align: center;">−11%</td>
+<td>存储芯片崩盘</td>
+</tr>
+<tr>
+<td><strong>2024</strong></td>
+<td><strong>6,559亿$</strong></td>
+<td style="text-align: center;"><strong>+23%</strong></td>
+<td>AI 芯片需求爆发</td>
+</tr>
+<tr>
+<td><strong>2025</strong></td>
+<td><strong>7,930亿$</strong></td>
+<td style="text-align: center;"><strong>+21%</strong></td>
+<td>AI 持续统治</td>
+</tr>
+</tbody>
+</table></div>
+
+<h3>1.2 半导体的周期性格局</h3>
+<blockquote>
+<p><strong>半导体是世界上最周期性的产业之一——每 3-4 年来一轮 boom-bust。理解周期，才能理解这个行业的投资逻辑。</strong></p>
+</blockquote>
+<p>半导体产业 40 年来的规律：<strong>需求上涨 → 厂商扩产 → 产能过剩 → 价格暴跌 → 厂商减产 → 供给不足 → 价格上涨 → 需求上涨……</strong> 如此往复。</p>
+
+<h4>为什么半导体这么"周期性"？</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>原因</th><th>解释</th></tr></thead>
+<tbody>
+<tr><td><strong>建厂太慢</strong></td><td>一座晶圆厂从开工到量产需要 <strong>2-3 年</strong>——当市场缺芯片时，新产能要 3 年后才能上线。到那时，可能已经过剩了</td></tr>
+<tr><td><strong>固定成本极高</strong></td><td>一座工厂造价 200 亿美元——即使市场不好，工厂也不能停（停下来亏更多），所以大家宁可亏本卖也要让产线跑满</td></tr>
+<tr><td><strong>需求波动大</strong></td><td>一台手机只需要 1-2 颗核心芯片，但消费者换机周期 2-3 年——一年好一年差是常态</td></tr>
+<tr><td><strong>存储芯片放大</strong></td><td>DRAM/NAND 是"大宗商品"——标准化产品，谁便宜买谁的，价格波动比 CPU/GPU 大 5 倍</td></tr>
+</tbody>
+</table></div>
+
+<h4>历史上最著名的三次"芯片大屠杀"</h4>
+<div style="display:flex;flex-direction:column;gap:8px;margin:16px 0;font-size:13px;">
+<div style="background:var(--card);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:var(--accent);">2000-2001 互联网泡沫</b> — 半导体营收暴跌 46%——有史以来最惨。前期过度投资光纤/通信芯片，泡沫破裂后芯片需求断崖</div>
+<div style="background:var(--card);border-left:4px solid #f57c00;border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:#f57c00;">2008-2009 金融危机</b> — 全球半导体跌 22%。DRAM 价格从 $2/颗崩到 $0.50——多家 DRAM 厂商倒闭或被收购</div>
+<div style="background:var(--card);border-left:4px solid #1d72b8;border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:#1d72b8;">2023 存储崩盘</b> — 三星利润暴跌 95%，SK Hynix 亏损，全行业营收跌 11%。随后 2024 AI 救场——存储从"血亏"秒变"暴赚"</div>
+</div>
+
+<blockquote>
+<p>🔑 <strong>投资启示</strong>：半导体股票最大的涨幅往往发生在"最惨的时候买、最好的时候卖"。2023 年存储芯片厂商亏得最惨时，一年后 HBM 相关公司股价翻了三倍。<br><br>
+⚠️ <strong>但 AI 正在改变周期</strong>：过去周期由"手机+PC"驱动（就那么大），现在 AI 数据中心需求是指数级的——有人认为"这次不一样"。但历史上每次说"这次不一样"时，最终都一样。</p>
+</blockquote>
+
+<hr />
+<h2>二、2025 全球前十排名</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">排名</th>
+<th>公司</th>
+<th style="text-align: right;">2025 营收</th>
+<th style="text-align: center;">市占率</th>
+<th style="text-align: center;">年增</th>
+<th>模式</th>
+<th>主要领域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td><strong>NVIDIA</strong></td>
+<td style="text-align: right;">1,257亿$</td>
+<td style="text-align: center;">15.8%</td>
+<td style="text-align: center;">+64%</td>
+<td>Fabless</td>
+<td>AI GPU</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td><strong>Samsung</strong></td>
+<td style="text-align: right;">725亿$</td>
+<td style="text-align: center;">9.1%</td>
+<td style="text-align: center;">+10%</td>
+<td>IDM</td>
+<td>存储+代工</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td><strong>SK Hynix</strong></td>
+<td style="text-align: right;">606亿$</td>
+<td style="text-align: center;">7.6%</td>
+<td style="text-align: center;">+37%</td>
+<td>IDM</td>
+<td>HBM 内存</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td><strong>Intel</strong></td>
+<td style="text-align: right;">479亿$</td>
+<td style="text-align: center;">6.0%</td>
+<td style="text-align: center;">−4%</td>
+<td>IDM</td>
+<td>CPU+代工</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>Micron</td>
+<td style="text-align: right;">415亿$</td>
+<td style="text-align: center;">5.2%</td>
+<td style="text-align: center;">+50%</td>
+<td>IDM</td>
+<td>DRAM/NAND</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>Qualcomm</td>
+<td style="text-align: right;">370亿$</td>
+<td style="text-align: center;">4.7%</td>
+<td style="text-align: center;">+12%</td>
+<td>Fabless</td>
+<td>手机 SoC</td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td>Broadcom</td>
+<td style="text-align: right;">343亿$</td>
+<td style="text-align: center;">4.3%</td>
+<td style="text-align: center;">+23%</td>
+<td>Fabless</td>
+<td>网络芯片</td>
+</tr>
+<tr>
+<td style="text-align: center;">8</td>
+<td>AMD</td>
+<td style="text-align: right;">325亿$</td>
+<td style="text-align: center;">4.1%</td>
+<td style="text-align: center;">+35%</td>
+<td>Fabless</td>
+<td>CPU+GPU</td>
+</tr>
+<tr>
+<td style="text-align: center;">9</td>
+<td>Apple</td>
+<td style="text-align: right;">246亿$</td>
+<td style="text-align: center;">3.1%</td>
+<td style="text-align: center;">+20%</td>
+<td>自研自用</td>
+<td>iPhone/Mac 芯片</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td>MediaTek</td>
+<td style="text-align: right;">185亿$</td>
+<td style="text-align: center;">2.3%</td>
+<td style="text-align: center;">+16%</td>
+<td>Fabless</td>
+<td>手机 SoC</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.1 一张图看懂</h3>
+<ul>
+<li><strong>AI 赢家（绿色）</strong>：NVIDIA（+64%）、AMD（+35%）、SK Hynix（+37%）、Micron（+50%）</li>
+<li><strong>传统强者（黄色）</strong>：Samsung（+10%）、Qualcomm（+12%）</li>
+<li><strong>掉队者（红色）</strong>：<strong>Intel（−4%）——前十唯一负增长的</strong></li>
+</ul>
+<blockquote>
+<p>📊 前十名中 7 家是 Fabless（无工厂）或纯设计公司。<strong>台积电不在这个排名里</strong>——它是代工厂，不卖自有品牌芯片。但台积电在晶圆代工市场占 <strong>68%</strong>。</p>
+</blockquote>
+<hr />
+<h2>三、巨头深度剖析</h2>
+<h3>3.1 NVIDIA（英伟达）— AI 时代的"卖铲人"</h3>
+<blockquote>
+<p><strong>一句话</strong>：没有 NVIDIA 的 GPU，就没有 ChatGPT。</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成立</td>
+<td>1993 年，黄仁勋（Jensen Huang）创立</td>
+</tr>
+<tr>
+<td>模式</td>
+<td>Fabless（台积电代工）</td>
+</tr>
+<tr>
+<td>2025 营收</td>
+<td><strong>1,257 亿美元</strong>（+64%），全球第一</td>
+</tr>
+<tr>
+<td>市值</td>
+<td>~3.5 万亿美元（全球前三）</td>
+</tr>
+<tr>
+<td>核心产品</td>
+<td>H100/H200/B200 GPU（AI 训练）、RTX（游戏）、DRIVE Thor（汽车）</td>
+</tr>
+<tr>
+<td>护城河</td>
+<td><strong>CUDA 生态</strong>——花了 15 年打造，锁定全球 AI 开发者</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>为什么 NVIDIA 这么强？</strong></p>
+<ol>
+<li><strong>GPU 天然适合 AI</strong>：AI 需要大量并行矩阵运算，GPU 架构天生比 CPU 适合</li>
+<li><strong>CUDA 锁定效应</strong>：所有 AI 框架（PyTorch、TensorFlow）都在 CUDA 上开发——换平台等于重写所有代码</li>
+<li><strong>垄断地位</strong>：AI 训练芯片市占率 <strong>&gt;90%</strong></li>
+<li><strong>一代芯片一代金</strong>：H100 售价 ~$30,000，B200 ~$40,000——毛利率 <strong>70%+</strong></li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>地缘风险</strong>：美国禁止 NVIDIA 卖高端 AI 芯片给中国——这催生了中国的国产替代。</p>
+</blockquote>
+<h3>3.2 台积电（TSMC）— 全球科技的"咽喉"</h3>
+<blockquote>
+<p><strong>一句话</strong>：你可以没听过台积电，但你手机、电脑、汽车里一定有它造的芯片。</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成立</td>
+<td>1987 年，张忠谋创立</td>
+</tr>
+<tr>
+<td>模式</td>
+<td>纯晶圆代工（Pure-Play Foundry）</td>
+</tr>
+<tr>
+<td>2025 营收</td>
+<td>~900 亿美元</td>
+</tr>
+<tr>
+<td>代工市占率</td>
+<td><strong>68%</strong>（先进制程 &gt;90%）</td>
+</tr>
+<tr>
+<td>核心客户</td>
+<td>Apple、NVIDIA、AMD、Qualcomm、Intel</td>
+</tr>
+<tr>
+<td>最先进制程</td>
+<td>3nm 量产，2nm 2025 试产</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>台积电有多重要？</strong></p>
+<pre><code>全球 3nm 芯片  ── 台积电独家供应
+全球 5nm 芯片  ── 台积电占 &gt;90%
+全球 7nm 芯片  ── 台积电占 &gt;80%
+苹果 A/M 系列   ── 100% 台积电制造
+NVIDIA GPU     ── 100% 台积电制造
+AMD CPU/GPU    ── 100% 台积电制造
+</code></pre>
+<blockquote>
+<p>🔑 <strong>如果台积电停产</strong>：全球智能手机、AI 训练、高性能计算全部停摆。"台积电是全世界最重要的公司，而大多数人都没听过它。"</p>
+</blockquote>
+<h3>3.3 Intel — 曾经的王者</h3>
+<blockquote>
+<p><strong>一句话</strong>：曾经"Intel Inside"统治 PC 时代，现在在 AI 时代严重掉队。</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成立</td>
+<td>1968 年</td>
+</tr>
+<tr>
+<td>模式</td>
+<td>IDM（设计+制造，现在也在做代工）</td>
+</tr>
+<tr>
+<td>2025 营收</td>
+<td>479 亿美元（<strong>−4%</strong>）</td>
+</tr>
+<tr>
+<td>市占率变化</td>
+<td>2021 年 12% → 2025 年 6%</td>
+</tr>
+<tr>
+<td>核心问题</td>
+<td>制造工艺落后台积电 2-3 年、AI 芯片布局迟了、PC 市场萎缩</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Intel 怎么掉队的？</strong></p>
+<pre><code>2010s ── Intel 的 10nm 工艺延迟 5 年
+      ── 台积电/三星在此期间从 14nm→7nm→5nm
+      ── Intel 失去了苹果（Mac 换自研芯片）
+      ── AMD 靠着台积电代工在 CPU 性能上反超 Intel
+
+2024- ── Intel 正试图转型做代工（&quot;Intel Foundry&quot;）
+25    ── 但客户不信任：&quot;你既做芯片又做代工，我怎么敢把设计给你？&quot;
+</code></pre>
+<h3>3.4 AMD — 挑战者</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025 营收</td>
+<td>325 亿美元（+35%）</td>
+</tr>
+<tr>
+<td>竞争力</td>
+<td>CPU（Ryzen/Epyc）性能反超 Intel；GPU 追赶 NVIDIA</td>
+</tr>
+<tr>
+<td>关键优势</td>
+<td>全靠台积电代工——先进制程比 Intel 自有工厂领先</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.5 Samsung — 双线作战</h3>
+<p>Samsung 是唯一同时在<strong>存储芯片（全球第一）</strong>和<strong>晶圆代工（全球第二）</strong>两个战场作战的公司。但代工良率低（3nm ~50%），客户流失严重，被台积电越拉越远。</p>
+
+<h3>3.6 SK Hynix — HBM 之王</h3>
+<blockquote>
+<p><strong>一句话</strong>：没有 SK Hynix 的 HBM，NVIDIA 的 GPU 就跑不起来。</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>维度</th><th>详情</th></tr></thead>
+<tbody>
+<tr><td>成立</td><td>1983 年，韩国现代电子（后更名为 SK Hynix）</td></tr>
+<tr><td>模式</td><td>IDM（存储芯片自研自产）</td></tr>
+<tr><td>2025 营收</td><td><strong>606 亿美元</strong>（+37%），全球第 3</td></tr>
+<tr><td>核心产品</td><td>HBM3E（AI GPU 必备内存）、DDR5 DRAM、NAND Flash</td></tr>
+<tr><td>护城河</td><td><strong>HBM 市占率 ~50%</strong>——NVIDIA H100/H200/B200 全用 SK Hynix 的 HBM。和台积电 CoWoS 深度绑定</td></tr>
+</tbody>
+</table></div>
+<p><strong>SK Hynix 怎么超车三星的？</strong></p>
+<ol>
+<li><strong>押对 HBM</strong>：2013 年就研发 HBM，当时没人觉得 AI 会爆发。三星觉得"HBM 市场规模太小"没重视</li>
+<li><strong>NVIDIA 认证</strong>：HBM 和 GPU 封装在一起，一旦通过 NVIDIA 认证就极难替换——"先发优势"锁定</li>
+<li><strong>竞争对手的困境</strong>：三星的 HBM 发热问题一直没解决；Micron 的 HBM 产能远不够</li>
+</ol>
+<blockquote>
+<p>📊 SK Hynix 2024-2025 年 HBM 产能全部卖光，2026 年的也已经预订满了。这就像"卖铲子给挖金矿的人"——NVIDIA 在挖 AI 金矿，SK Hynix 是卖铲子的二号人物。</p>
+</blockquote>
+
+<h3>3.7 Broadcom（博通）— 网络芯片隐形冠军</h3>
+<blockquote>
+<p><strong>一句话</strong>：你可能没听过博通，但你的 WiFi、蓝牙、数据中心交换机里全是它的芯片。</p>
+</blockquote>
+<div class="table-wrap"><table>
+<thead><tr><th>维度</th><th>详情</th></tr></thead>
+<tbody>
+<tr><td>成立</td><td>1991 年（2016 年被 Avago 收购后沿用 Broadcom 品牌）</td></tr>
+<tr><td>模式</td><td>Fabless（台积电代工）</td></tr>
+<tr><td>2025 营收</td><td><strong>343 亿美元</strong>（+23%），全球第 7</td></tr>
+<tr><td>核心产品</td><td>数据中心网络交换芯片、WiFi/蓝牙芯片、RF 射频芯片、定制 ASIC（帮 Google/苹果设计专属芯片）</td></tr>
+<tr><td>护城河</td><td><strong>网络交换芯片市占率 ~80%</strong>——AI 数据中心里 GPU 之间的数据交换全靠博通的交换机芯片</td></tr>
+</tbody>
+</table></div>
+<p><strong>博通的特殊之处：</strong></p>
+<ol>
+<li><strong>"并购帝国"</strong>：博通 CEO 陈福阳（Hock Tan）是半导体界最激进的并购者——买了 30+ 家公司，每次买完就把不赚钱的部门砍掉</li>
+<li><strong>AI 数据中心受益者</strong>：AI 集群里几千颗 GPU 需要超高速网络互联——博通的交换芯片和 PCIe 芯片是必需品</li>
+<li><strong>定制 ASIC 业务爆发</strong>：Google TPU、苹果自研芯片的某些模块——博通是背后默默做设计的"军火商"</li>
+</ol>
+<blockquote>
+<p>📊 博通是"卖牛仔裤给淘金者"的典型——AI 热潮的最大赢家是 NVIDIA（GPU），但博通的网络芯片让 GPU 之间能"交谈"，同样不可或缺。如果说 NVIDIA 是 AI 数据中心的引擎，博通就是传动轴。</p>
+</blockquote>
+<hr />
+<h2>四、产业链利润分配：谁赚钱最多？</h2>
+<blockquote>
+<p><strong>不同环节的赚钱能力天差地别——同样是"做芯片"，毛利率能从 15% 到 75%。理解利润分配，才能看懂产业链的权力结构。</strong></p>
+</blockquote>
+
+<div class="table-wrap"><table>
+<thead>
+<tr><th>环节</th><th>代表公司</th><th style="text-align:center">毛利率</th><th style="text-align:center">净利率</th><th>为什么这个利润水平？</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>🧠 IC 设计（Fabless）</strong></td><td>NVIDIA</td><td style="text-align:center"><strong>~75%</strong></td><td style="text-align:center"><strong>~55%</strong></td><td>轻资产、卖的是"知识产权"（CUDA 生态），边际成本极低——一颗 H100 卖 $30,000，制造成本仅 ~$3,000</td></tr>
+<tr><td><strong>🛠️ EDA + IP 核</strong></td><td>Synopsys / ARM</td><td style="text-align:center"><strong>~80-95%</strong></td><td style="text-align:center"><strong>~20-30%</strong></td><td>纯软件/授权模式——开发一套 EDA，卖 100 份和卖 1,000 份的成本几乎一样。ARM 每颗芯片收几分钱的授权费，但全球每年出货 300 亿颗 ARM 芯片</td></tr>
+<tr><td><strong>🏗️ 设备</strong></td><td>ASML</td><td style="text-align:center"><strong>~51%</strong></td><td style="text-align:center"><strong>~28%</strong></td><td>技术垄断溢价——EUV 全球独一家，定价权极强。一台 EUV 卖 3.8 亿美元，成本 ~2 亿</td></tr>
+<tr><td><strong>💾 存储芯片</strong></td><td>Samsung / SK Hynix</td><td style="text-align:center"><strong>~30-40%</strong></td><td style="text-align:center"><strong>~10-20%</strong></td><td>标准化产品、周期性极强——景气年暴赚，低谷年亏损。2023 年三星半导体利润暴跌 95%</td></tr>
+<tr><td><strong>🏭 晶圆代工</strong></td><td>台积电</td><td style="text-align:center"><strong>~53%</strong></td><td style="text-align:center"><strong>~38%</strong></td><td>规模效应+技术领先——台积电的毛利率远超其他代工厂（联电 ~30%、中芯 ~20%），因为先进制程可以定高价</td></tr>
+<tr><td><strong>📦 封装测试</strong></td><td>日月光</td><td style="text-align:center"><strong>~15-25%</strong></td><td style="text-align:center"><strong>~5-10%</strong></td><td>劳动密集+设备密集——赚的是"辛苦钱"。但先进封装（CoWoS）溢价高，毛利率可达 30%+</td></tr>
+</tbody>
+</table></div>
+
+<h3>4.1 一张图看懂"谁拿走了钱"</h3>
+<p>以一颗售价 $30,000 的 NVIDIA H100 GPU 为例：</p>
+<div style="display:flex;flex-direction:column;gap:4px;margin:16px 0;font-size:13px;max-width:600px;">
+<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:8px;padding:6px 12px;"><div style="width:120px;font-weight:700;">💰 NVIDIA 毛利</div><div style="flex:1;background:#e63946;height:20px;border-radius:4px;width:75%;"></div><div style="white-space:nowrap;">~$22,500（75%）</div></div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:8px;padding:6px 12px;"><div style="width:120px;font-weight:700;">🏭 台积电代工费</div><div style="flex:1;background:#f57c00;height:20px;border-radius:4px;width:10%;"></div><div style="white-space:nowrap;">~$3,000（10%）</div></div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:8px;padding:6px 12px;"><div style="width:120px;font-weight:700;">💾 HBM 内存</div><div style="flex:1;background:#f9a825;height:20px;border-radius:4px;width:5%;"></div><div style="white-space:nowrap;">~$1,500（5%）</div></div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:8px;padding:6px 12px;"><div style="width:120px;font-weight:700;">📦 封装+其他</div><div style="flex:1;background:#1d72b8;height:20px;border-radius:4px;width:5%;"></div><div style="white-space:nowrap;">~$1,500（5%）</div></div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:8px;padding:6px 12px;"><div style="width:120px;font-weight:700;">⚙️ 材料+其他</div><div style="flex:1;background:#999;height:20px;border-radius:4px;width:5%;"></div><div style="white-space:nowrap;">~$1,500（5%）</div></div>
+</div>
+
+<blockquote>
+<p>🔑 <strong>核心结论</strong>：半导体产业的利润高度集中于<strong>"卖脑子的"（设计+EDA+IP）</strong>——这些环节不需要工厂、不需要原材料，卖的是知识和标准。其次是<strong>"卖垄断的"（设备+先进代工）</strong>——全球只有一两家能做的生意，定价权极强。最惨的是<strong>"卖苦力的"（封测+材料）</strong>——竞争激烈，利润率薄如刀片。<br><br>
+💡 <strong>这解释了为什么美国打压中国半导体的重点是 EDA + 光刻机 + AI 芯片</strong>——这三个是产业链上利润最高、垄断最强的环节。美国不是要阻止中国造芯片，而是要阻止中国进入"高利润区"。</p>
+</blockquote>
+<hr />
+<h2>五、钱流向了哪里？</h2>
+<div style="display:flex;flex-direction:column;gap:6px;margin:16px 0;font-size:12px;">
+<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:8px;padding:8px 14px;">
+<div style="width:42%;font-weight:700;">🔴 AI 芯片（GPU/ASIC/NPU）</div>
+<div style="flex:1;background:#e63946;height:22px;border-radius:4px;min-width:200px;"></div>
+<div style="white-space:nowrap;">~2,000亿$ <span style="color:var(--accent);">增速最快</span></div>
+</div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:8px;padding:8px 14px;">
+<div style="width:42%;font-weight:700;">🟠 存储芯片（DRAM/NAND/HBM）</div>
+<div style="flex:1;background:#f57c00;height:22px;border-radius:4px;width:170px;"></div>
+<div style="white-space:nowrap;">~1,600亿$</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:8px;padding:8px 14px;">
+<div style="width:42%;font-weight:700;">🟡 手机/平板 SoC</div>
+<div style="flex:1;background:#f9a825;height:22px;border-radius:4px;width:140px;"></div>
+<div style="white-space:nowrap;">~1,200亿$</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:8px;padding:8px 14px;">
+<div style="width:42%;font-weight:700;">🟢 汽车芯片</div>
+<div style="flex:1;background:#2e7d32;height:22px;border-radius:4px;width:100px;"></div>
+<div style="white-space:nowrap;">~640-850亿$</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:8px;padding:8px 14px;">
+<div style="width:42%;font-weight:700;">🔵 工业/IoT · PC/服务器 CPU</div>
+<div style="flex:1;background:#1d72b8;height:22px;border-radius:4px;width:60px;"></div>
+<div style="white-space:nowrap;">~500亿$ 各</div>
+</div>
+<div style="display:flex;align-items:center;gap:10px;background:var(--card);border-radius:8px;padding:8px 14px;">
+<div style="width:42%;font-weight:700;">⚪ 其他（模拟/射频/传感器）</div>
+<div style="flex:1;background:#999;height:22px;border-radius:4px;width:130px;"></div>
+<div style="white-space:nowrap;">~1,200亿$</div>
+</div>
+</div>
+
+<blockquote>
+<p>🔑 <strong>关键判断</strong>：AI 在"吞噬"整个半导体产业。NVIDIA 一家拿了 16% 份额。不搞 AI 的传统厂商正在被边缘化。</p>
+</blockquote>
+<hr />
+<p><em>报告完成日期：2026年7月14日</em><br />
+<em>数据来源：Gartner 2026.1、Yole Group、公开财报</em></p></div></div><div class="tab-panel " id="panel-c"><div class="container"><blockquote>
+<p><strong>被卡脖子反而加速——美国制裁如何重塑中国半导体产业</strong></p>
+<p>数据基准：2021-2026</p>
+</blockquote>
+<hr />
+<h2>目录</h2>
+<ol>
+<li><a href="#一制裁时间线">美国连环制裁全记录</a></li>
+<li><a href="#二制裁效果">制裁效果：成功还是失败？</a></li>
+<li><a href="#三三大环节">三大环节国产化现状</a>（设计·制造·封测·<a href="#国产设备五虎">设备五虎</a>）</li>
+<li><a href="#四光刻机">光刻机：最后的堡垒</a></li>
+<li><a href="#五华为">华为：被制裁最惨，也最争气</a></li>
+<li><a href="#六中芯国际">中芯国际：中国芯片制造的唯一希望</a></li>
+<li><a href="#七三条路径">中国的三条突围路径</a></li>
+</ol>
+<hr />
+<h2>一、制裁时间线（2019-2026）</h2>
+<div style="display:flex;flex-direction:column;gap:8px;margin:16px 0;font-size:13px;">
+<div style="background:var(--card);border-left:4px solid #999;border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:var(--blue);">2019.5</b> 华为被列入实体清单——禁止购买美国芯片，"华为还能活吗？"</div>
+<div style="background:var(--card);border-left:4px solid #f57c00;border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:#f57c00;">2020.5</b> FDPR 规则——台积电停供华为，麒麟芯片"绝版"</div>
+<div style="background:var(--card);border-left:4px solid #f57c00;border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:#f57c00;">2020.9</b> 中芯国际被列入实体清单——禁获 10nm 以下设备</div>
+<div style="background:var(--card);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:var(--accent);">2022.10</b> 史上最严禁令——禁 AI 芯片+制造设备，NVIDIA A100/H100 禁售中国</div>
+<div style="background:var(--card);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:var(--accent);">2023.10</b> 堵漏洞——连"降级版"A800/H800 也不行，ASML DUV 禁售</div>
+<div style="background:var(--card);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:var(--accent);">2025.4</b> H20 和 AMD MI308 全面禁止——"模糊拒绝"政策</div>
+<div style="background:#fff3cd;border-left:4px solid #e63946;border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:#e63946;">⚠️ 2025.5 最狠一刀</b> — 三大 EDA 厂商被要求停止支持中国大陆——没有 EDA 设计不了芯片！</div>
+<div style="background:var(--card);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:var(--accent);">2026.6</b> 堵死漏洞——总部在中国的实体，马来西亚/新加坡/迪拜中转站全封</div>
+<div style="background:#d4edda;border-left:4px solid #2e7d32;border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:#2e7d32;">2026.7 中国反制</b> — 禁购 NVIDIA RTX Pro 6000D，10家美企被列管制，稀土出口管制</div>
+</div>
+
+<blockquote>
+<p>🔑 <strong>结论</strong>：制裁每升级一次，中国半导体自给率就跳升一次。美国的政策在"放血"中国的同时，也在"割自己的肉"——美国芯片公司失去了全球最大的芯片消费市场。</p>
+</blockquote>
+<hr />
+<h2>二、制裁效果：成功还是失败？</h2>
+<h3>2.1 美国的目标 vs 现实</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>美国期望</th>
+<th>实际结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌ 掐断中国芯片制造能力</td>
+<td>⚠️ 中国 7nm 量产了（虽然良率低）</td>
+</tr>
+<tr>
+<td>❌ 阻止华为发展</td>
+<td>⚠️ 华为麒麟芯片回归，昇腾 AI 芯片量产</td>
+</tr>
+<tr>
+<td>❌ 维持 10 年+ 技术领先</td>
+<td>⚠️ 中国半导体设备国产化率翻倍</td>
+</tr>
+<tr>
+<td>❌ 中国 AI 依赖美国芯片</td>
+<td>✅ NVIDIA 中国份额从 &gt;90% → ~0%→华为昇腾接手</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.2 关键数据变化</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th style="text-align: center;">制裁前（2021）</th>
+<th style="text-align: center;">2025</th>
+<th>变化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>半导体设备国产化率</td>
+<td style="text-align: center;">10%</td>
+<td style="text-align: center;"><strong>21%</strong></td>
+<td>翻倍</td>
+</tr>
+<tr>
+<td>NVIDIA 中国 AI 芯片份额</td>
+<td style="text-align: center;">&gt;90%</td>
+<td style="text-align: center;"><strong>~0%（2026.5）</strong></td>
+<td>彻底清零</td>
+</tr>
+<tr>
+<td>中国国产 AI 芯片份额</td>
+<td style="text-align: center;">29%</td>
+<td style="text-align: center;"><strong>42%</strong></td>
+<td>+13 pp</td>
+</tr>
+<tr>
+<td>中国国产 AI 芯片销售额</td>
+<td style="text-align: center;">60亿$</td>
+<td style="text-align: center;"><strong>160亿$</strong></td>
+<td>+112%</td>
+</tr>
+<tr>
+<td>北方华创全球设备排名</td>
+<td style="text-align: center;">#8</td>
+<td style="text-align: center;"><strong>#5</strong></td>
+<td>中国第一</td>
+</tr>
+<tr>
+<td>寒武纪 AI 芯片出货</td>
+<td style="text-align: center;">2万颗</td>
+<td style="text-align: center;"><strong>15万颗</strong></td>
+<td>7.5倍</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>💡 <strong>一句话总结</strong>：制裁没有阻止中国造芯片，但让中国芯片<strong>更贵、性能更低、良率更差</strong>——中国在"能用"层面成功了，在"好用"层面还有很长的路。</p>
+</blockquote>
+<hr />
+<h2>三、三大环节国产化现状</h2>
+<h3>3.1 芯片设计（进步最大）</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>公司</th>
+<th>做什么</th>
+<th>相当于</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>华为海思</strong></td>
+<td>手机 SoC、AI 芯片、服务器 CPU</td>
+<td>中国版 Apple Silicon + NVIDIA</td>
+</tr>
+<tr>
+<td><strong>海光信息</strong></td>
+<td>x86 服务器 CPU（AMD 授权）</td>
+<td>中国版 AMD</td>
+</tr>
+<tr>
+<td><strong>寒武纪</strong></td>
+<td>AI 训练/推理芯片</td>
+<td>中国版 NVIDIA</td>
+</tr>
+<tr>
+<td><strong>地平线</strong></td>
+<td>自动驾驶芯片</td>
+<td>中国版 Mobileye</td>
+</tr>
+<tr>
+<td><strong>黑芝麻智能</strong></td>
+<td>自动驾驶芯片</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>摩尔线程</strong></td>
+<td>国产 GPU</td>
+<td>中国版 NVIDIA（但差距巨大）</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>✅ 芯片设计是中国半导体最争气的环节。华为的麒麟 9010/9020 已经实现了 7nm 级性能。</p>
+</blockquote>
+<h3>3.2 芯片制造——差距最大</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>公司</th>
+<th>最先进制程</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>台积电（标杆）</strong></td>
+<td>3nm 量产</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>中芯国际（SMIC）</strong></td>
+<td>7nm（用旧ASML DUV硬做）</td>
+<td>产量有限、良率 33%</td>
+</tr>
+<tr>
+<td>华虹半导体</td>
+<td>28nm+</td>
+<td>成熟制程为主</td>
+</tr>
+<tr>
+<td>华润微</td>
+<td>成熟制程</td>
+<td>功率器件</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>⚠️ <strong>核心瓶颈</strong>：没有 EUV 光刻机，中国永远无法量产 5nm/3nm。7nm 是 DUV 多重曝光"硬做"出来的——成本比台积电高 ~50%。</p>
+</blockquote>
+<h3>3.3 封装测试——最有竞争力</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>公司</th>
+<th style="text-align: center;">全球排名</th>
+<th>竞争力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>长电科技（JCET）</strong></td>
+<td style="text-align: center;">#3</td>
+<td>先进封装研发积极</td>
+</tr>
+<tr>
+<td>通富微电</td>
+<td style="text-align: center;">#4</td>
+<td>—</td>
+</tr>
+<tr>
+<td>华天科技</td>
+<td style="text-align: center;">#6</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>✅ 封装是中国半导体在国际上最有竞争力的环节。全球前十中有 4 家中国企业。</p>
+</blockquote>
+
+<h3>3.4 国产设备五虎速览</h3>
+<blockquote>
+<p><strong>中国半导体设备的国产化率从 10%（2021）翻到 21%（2025），背后是这五家公司。</strong></p>
+</blockquote>
+
+<div class="table-wrap"><table>
+<thead><tr><th>公司</th><th>做什么设备</th><th>全球排名</th><th>相当于</th><th>关键进展</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>🔶 北方华创</strong><br>NAURA</td>
+<td>刻蚀机、沉积设备（CVD/PVD）、清洗机——产品线最全</td>
+<td><strong>全球 #5</strong><br>中国 #1</td>
+<td>中国版"应用材料"</td>
+<td>2025 年营收 ~$80 亿美元，已进入中芯国际/华虹产线</td>
+</tr>
+<tr>
+<td><strong>🔷 中微半导体</strong><br>AMEC</td>
+<td><strong>刻蚀机</strong>（介质刻蚀全球领先）、MOCVD</td>
+<td>全球刻蚀 ~3%</td>
+<td>中国版"Lam Research"</td>
+<td>5nm 刻蚀机已进入台积电产线验证——<strong>中国设备最高成就</strong></td>
+</tr>
+<tr>
+<td><strong>🟢 盛美上海</strong><br>ACM Research</td>
+<td>清洗设备（晶圆清洗）、电镀设备</td>
+<td>—</td>
+<td>—</td>
+<td>清洗设备进入中芯国际/长江存储，技术差异化（兆声波清洗）</td>
+</tr>
+<tr>
+<td><strong>🟡 华海清科</strong><br>Hwatsing</td>
+<td>CMP（化学机械抛光——把晶圆表面磨平）</td>
+<td>—</td>
+<td>—</td>
+<td>打破美国应用材料/日本荏原垄断，国内 CMP 市占率 ~30%</td>
+</tr>
+<tr>
+<td><strong>🟣 拓荆科技</strong><br>Piotech</td>
+<td>PECVD（等离子增强化学气相沉积——镀膜关键设备）</td>
+<td>—</td>
+<td>—</td>
+<td>国内 PECVD 市占率快速提升，受益于中芯国际扩产</td>
+</tr>
+</tbody>
+</table></div>
+
+<blockquote>
+<p>🔑 <strong>诚实的评估</strong>：中国设备厂商进步很快，但——<br>
+✅ 成熟制程设备（28nm+）：基本可以替代美国设备<br>
+⚠️ 先进制程设备（14nm/7nm）：能部分替代，但良率和产能不如美国设备<br>
+❌ 最先进设备（5nm/3nm + EUV）：目前完全无法替代<br><br>
+💡 最大的差距不在"能不能造"，而在"好不好用"——国产设备良率比美国设备低 10-20%，在利润率极薄的半导体行业，这 10-20% 就是生死线。</p>
+</blockquote>
+
+<hr />
+<h2>四、光刻机：最后的堡垒</h2>
+<h3>4.1 为什么光刻机这么难？</h3>
+<p>光刻机是芯片制造最核心的设备——把电路图案"印"到硅片上。一台先进 EUV 光刻机：<br />
+- 售价：<strong>~3.8 亿美元</strong>/台<br />
+- 重量：<strong>180 吨</strong><br />
+- 零件：<strong>10 万+</strong> 个（来自全球 5000+ 供应商）<br />
+- 运输：需要 <strong>40 个集装箱 + 3 架波音 747</strong></p>
+<p><strong>全球只有一家公司能造 EUV 光刻机：荷兰 ASML。被禁止卖给中国。</strong></p>
+<h3>4.2 中国光刻机进展</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>时间</th>
+<th>进展</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2024</td>
+<td>中国狂买 ~90 台 ASML DUV 浸润式光刻机（占 ASML DUV 70% 销量）——<strong>囤积备战</strong></td>
+</tr>
+<tr>
+<td>2025.9</td>
+<td>中芯国际开始测试 <strong>首台国产浸润式 DUV 光刻机</strong>（上海玉量科技/华为 SiCarrier）</td>
+</tr>
+<tr>
+<td>2025 末</td>
+<td>国产 EUV 原型机突破（采用 LDP 激光放电等离子体路线，与 ASML 不同）</td>
+</tr>
+<tr>
+<td>2026</td>
+<td>国产 DUV 计划进入产线（乐观估计 2027）</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.3 差距有多大？</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>ASML（荷兰）</th>
+<th>中国</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最先进产品</td>
+<td>EXE:5000（High-NA EUV）</td>
+<td>DUV 原型机（≈ ASML 2008 年水平）</td>
+</tr>
+<tr>
+<td>技术差距</td>
+<td>—</td>
+<td>约 <strong>17-20 年</strong>（高盛评估）</td>
+</tr>
+<tr>
+<td>EUV 光源</td>
+<td>激光等离子体（LPP）</td>
+<td>激光放电等离子体（LDP，另辟蹊径）</td>
+</tr>
+<tr>
+<td>关键零件</td>
+<td>德国蔡司光学镜片</td>
+<td>无法国产（蔡司独家供应 ASML）</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>🔑 <strong>残酷的现实</strong>：中国光刻机落后 ASML ~20 年。即使国产 EUV 原型机突破，从原型机到量产至少还要 3-5 年。最乐观估计：<strong>2030 年前无法实现 7nm 以下国产设备量产</strong>。</p>
+</blockquote>
+<hr />
+<h2>五、华为：被制裁最惨，也最争气</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>时间</th>
+<th>事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2019</td>
+<td>被列入实体清单，手机业务全球崩塌（失去 Google 服务）</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>台积电停供，麒麟芯片"绝版"</td>
+</tr>
+<tr>
+<td>2023.8</td>
+<td><strong>Mate 60 Pro 横空出世</strong>——搭载麒麟 9000S（SMIC 7nm），举国震惊</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>昇腾 910c AI 芯片量产，字节/阿里开始从 NVIDIA 转向华为</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>鸿蒙智行汽车业务爆发——"五界三境"</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>华为是中国半导体自主化的一面旗帜。被制裁 6 年后，不仅没死，反而在手机芯片、AI 芯片、操作系统、智能汽车四个战场同时发力。</p>
+</blockquote>
+<hr />
+<h2>六、中芯国际：中国芯片制造的唯一希望</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025 Q2 营收</td>
+<td><strong>22 亿美元</strong>（+16% YoY）</td>
+</tr>
+<tr>
+<td>产能利用率</td>
+<td><strong>92.5%</strong>（接近满产）</td>
+</tr>
+<tr>
+<td>最先进制程</td>
+<td>7nm（DUV 多重曝光，良率 ~33%）</td>
+</tr>
+<tr>
+<td>扩产目标</td>
+<td>2027 年达到 <strong>8 万片/月</strong></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>⚠️ <strong>SMIC 的困境</strong>：没有 EUV，7nm 是极限。能活着、能赚钱、能扩产——但无法追上先进制程。这就是中国半导体制造的"天花板"。</p>
+</blockquote>
+<hr />
+<h2>七、中国的三条突围路径</h2>
+<h3>路径 A：设备追赶（硬科技正面突破）</h3>
+<ul>
+<li>国产 DUV 进入产线测试（2025）</li>
+<li>EUV 原型机（2025 年末）</li>
+<li>2027 年国产设备进入成熟制程生产线</li>
+<li>2030+ 实现成熟制程国产化</li>
+</ul>
+<h3>路径 B：架构创新（用聪明绕过硬限制）</h3>
+<ul>
+<li><strong>芯片堆叠（3D Stacking）</strong>：两颗 14nm 芯片堆叠 ≈ 一颗 7nm 性能</li>
+<li><strong>Chiplet（芯粒）</strong>：把大芯片拆成小芯片，分别制造再组合</li>
+<li>华为已在使用这项技术</li>
+</ul>
+<h3>路径 C：生态自主（长期）</h3>
+<ul>
+<li><strong>RISC-V</strong> 开源 CPU 架构替代 ARM（不受美国出口管制）</li>
+<li>国产 EDA 软件替代 Cadence/Synopsys</li>
+<li>构建"去美化"的全产业链</li>
+</ul>
+<blockquote>
+<p>🔑 <strong>一句话</strong>：中国半导体正走在"从 0 到 1"最艰难的阶段。制裁是把双刃剑——短期痛，长期逼出了自立。</p>
+</blockquote>
+<hr />
+<p><em>报告完成日期：2026年7月14日</em><br />
+<em>数据来源：Gartner、Barclays、公开报道</em></p></div></div><div class="tab-panel " id="panel-d"><div class="container"><blockquote>
+<p><strong>一辆智能电动车 = 四个轮子 + 上千颗芯片。汽车芯片是半导体增速最快的赛道之一。</strong></p>
+<p>数据基准：2025-2026</p>
+</blockquote>
+<hr />
+<h2>目录</h2>
+<ol>
+<li><a href="#一为什么汽车需要芯片">为什么汽车需要这么多芯片？</a></li>
+<li><a href="#二汽车芯片三大类">汽车芯片三大类</a></li>
+<li><a href="#三自动驾驶算力军备竞赛">自动驾驶芯片：算力军备竞赛</a></li>
+<li><a href="#四功率半导体">功率半导体：SiC 革命</a></li>
+<li><a href="#五MCU">MCU：车辆的"毛细血管"</a></li>
+<li><a href="#六软件定义汽车">产业趋势：软件定义汽车</a></li>
+</ol>
+<hr />
+<h2>一、为什么汽车需要这么多芯片？</h2>
+<h3>1.1 汽车半导体含量暴增</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align: center;">传统燃油车</th>
+<th style="text-align: center;">智能电动车</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>芯片数量</td>
+<td style="text-align: center;">~500-800 颗</td>
+<td style="text-align: center;"><strong>1,000-3,000 颗</strong></td>
+</tr>
+<tr>
+<td>半导体价值</td>
+<td style="text-align: center;">~$350-500</td>
+<td style="text-align: center;"><strong>$1,000-1,400</strong></td>
+</tr>
+<tr>
+<td>代码量</td>
+<td style="text-align: center;">~1,000 万行</td>
+<td style="text-align: center;"><strong>3-5 亿行</strong>（超过一架波音 787）</td>
+</tr>
+</tbody>
+</table></div>
+<h3>1.2 市场规模</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025 全球汽车半导体</td>
+<td>~<strong>640-850 亿美元</strong></td>
+</tr>
+<tr>
+<td>2030 预测</td>
+<td><strong>1,320 亿美元</strong>（CAGR ~10%）</td>
+</tr>
+<tr>
+<td>EV 半导体增速</td>
+<td>CAGR <strong>21%</strong>（功率+ADAS 驱动）</td>
+</tr>
+<tr>
+<td>增长率 vs 整车市场</td>
+<td><strong>5 倍</strong></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>🔑 汽车半导体是仅次于 AI 芯片的第二大增长引擎。每卖出一辆高端智能电动车，汽车芯片厂商能赚到 $1,400+。</p>
+</blockquote>
+<hr />
+<h2>二、汽车芯片三大类</h2>
+<blockquote>
+<p>💡 把一辆智能电动车想象成一个<strong>机器人</strong>：功率芯片 = <strong>肌肉</strong>、计算芯片 = <strong>大脑</strong>、控制与感知芯片 = <strong>神经+感官</strong>。</p>
+</blockquote>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0;">
+<div style="background:var(--card);border:2px solid #f57c00;border-radius:14px;padding:20px 14px;text-align:center;">
+<div style="font-size:40px;margin-bottom:6px;">🏋️</div>
+<div style="font-size:17px;font-weight:700;color:#f57c00;margin-bottom:6px;">功率半导体</div>
+<div style="font-size:12px;color:var(--muted);margin-bottom:10px;">肌肉 — 驱动车轮的力量</div>
+<div style="background:var(--bg);border-radius:8px;padding:8px;font-size:12px;margin-bottom:6px;"><b>单车价值</b><br>$300-400</div>
+<div style="background:var(--bg);border-radius:8px;padding:8px;font-size:12px;margin-bottom:6px;"><b>单车用量</b><br>20-50 颗</div>
+<div style="background:var(--bg);border-radius:8px;padding:8px;font-size:11px;"><b>代表</b><br>英飞凌 · ST · 比亚迪半导体</div>
+</div>
+<div style="background:var(--card);border:2px solid #1d72b8;border-radius:14px;padding:20px 14px;text-align:center;">
+<div style="font-size:40px;margin-bottom:6px;">🧠</div>
+<div style="font-size:17px;font-weight:700;color:#1d72b8;margin-bottom:6px;">计算芯片</div>
+<div style="font-size:12px;color:var(--muted);margin-bottom:10px;">大脑 — 做决策跑AI算法</div>
+<div style="background:var(--bg);border-radius:8px;padding:8px;font-size:12px;margin-bottom:6px;"><b>单车价值</b><br>$200-600（最贵）</div>
+<div style="background:var(--bg);border-radius:8px;padding:8px;font-size:12px;margin-bottom:6px;"><b>单车用量</b><br>2-4 颗</div>
+<div style="background:var(--bg);border-radius:8px;padding:8px;font-size:11px;"><b>代表</b><br>NVIDIA · 高通 · 华为 · 地平线</div>
+</div>
+<div style="background:var(--card);border:2px solid #2e7d32;border-radius:14px;padding:20px 14px;text-align:center;">
+<div style="font-size:40px;margin-bottom:6px;">🎯</div>
+<div style="font-size:17px;font-weight:700;color:#2e7d32;margin-bottom:6px;">控制与感知</div>
+<div style="font-size:12px;color:var(--muted);margin-bottom:10px;">神经+感官 — 采集与执行</div>
+<div style="background:var(--bg);border-radius:8px;padding:8px;font-size:12px;margin-bottom:6px;"><b>单车价值</b><br>$300-500</div>
+<div style="background:var(--bg);border-radius:8px;padding:8px;font-size:12px;margin-bottom:6px;"><b>单车用量</b><br>50-200 颗（最杂）</div>
+<div style="background:var(--bg);border-radius:8px;padding:8px;font-size:11px;"><b>代表</b><br>NXP · Renesas · TI</div>
+</div>
+</div>
+
+<h3>三类芯片分别干什么？</h3>
+<p><strong>🏋️ 功率半导体 — 肌肉</strong></p>
+<p>电动汽车的电池输出直流电，电机需要交流电。功率芯片是中间的<strong>转换开关</strong>：把直流变交流驱动电机、升降压给不同部件供电、控制充电速度。</p>
+<blockquote>
+<p>800V 快充平台必须用 <strong>SiC（碳化硅）</strong>——效率从硅的 88% 跳到 97%，充电 15 分钟跑 400 公里。</p>
+</blockquote>
+<p><strong>🧠 计算芯片 — 大脑</strong></p>
+<p>全车<strong>最贵、技术含量最高</strong>的芯片。一辆车只要 2-4 颗，但每颗 $100-600：<br />
+- <strong>智驾 SoC</strong>：跑 AI 模型识别行人/车辆/红绿灯<br />
+- <strong>座舱 SoC</strong>：管仪表盘、中控屏、语音助手<br />
+- 趋势：<strong>两颗合一</strong>——NVIDIA Thor 一颗芯片同时做两件事</p>
+<p><strong>🎯 控制与感知 — 神经+感官</strong></p>
+<p>数量最多、种类最杂：<br />
+- <strong>MCU</strong>：车窗/雨刷/空调的小控制器，每车几十上百颗<br />
+- <strong>传感器芯片</strong>：车的"耳朵"和"眼睛"，L3 自动驾驶装 8-14 个摄像头 + 5 个雷达 + 1-2 个 LiDAR</p>
+
+<h4>传感器芯片三类：摄像头（CIS）、雷达、LiDAR</h4>
+<p>自动驾驶的感知系统依赖三种传感器协同工作，每种对应的芯片完全不同：</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>传感器</th><th>核心芯片</th><th>怎么工作</th><th>单车用量</th><th>单车价值</th><th>代表厂商</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>📷 摄像头</strong></td>
+<td><strong>CIS</strong>（CMOS 图像传感器）+ ISP（图像信号处理器）</td>
+<td>把光线转为数字图像——识别车道线、红绿灯、行人、路牌</td>
+<td><strong>8-14 个</strong></td>
+<td>$80-200</td>
+<td><strong>Sony（~50%）</strong>、Samsung、安森美（Onsemi）、<strong>豪威科技</strong>（中国，被韦尔股份收购）</td>
+</tr>
+<tr>
+<td><strong>📡 毫米波雷达</strong></td>
+<td><strong>MMIC</strong>（单片微波集成电路）</td>
+<td>发射电磁波测距离+速度——盲区监测、自动紧急刹车（AEB）</td>
+<td><strong>3-5 个</strong></td>
+<td>$60-120</td>
+<td><strong>英飞凌、NXP、TI</strong>；中国：加特兰微电子</td>
+</tr>
+<tr>
+<td><strong>🔬 激光雷达</strong></td>
+<td><strong>SPAD/SiPM</strong>（单光子探测器）+ VCSEL（激光发射器）</td>
+<td>发射激光脉冲，测距精度毫米级——生成 3D 点云"看见"周围一切</td>
+<td><strong>1-2 个</strong></td>
+<td>$200-1,000（最贵）</td>
+<td>禾赛科技（中国，全球第 1）、速腾聚创、Luminar、Valeo</td>
+</tr>
+</tbody>
+</table></div>
+
+<blockquote>
+<p>💡 <strong>为什么 LiDAR 最贵？</strong> 激光雷达要在指甲盖大小的芯片上集成几百个微型激光器和探测器——这需要特种半导体工艺（不是标准 CMOS）。一颗高性能 LiDAR 的成本曾高达 $10,000，2026 年已降到 $500-1,000。<br><br>
+🔑 <strong>中国传感器突破</strong>：摄像头 CIS 领域，豪威科技（韦尔股份）全球第 3，已进入比亚迪/蔚来/理想供应链。激光雷达领域，<strong>禾赛科技全球出货量第一</strong>——这是中国在汽车芯片细分赛道最争气的一个。</p>
+</blockquote>
+<hr />
+<h2>三、自动驾驶芯片：算力军备竞赛</h2>
+<h3>3.1 竞争格局</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>芯片平台</th>
+<th style="text-align: center;">算力（TOPS）</th>
+<th>制程</th>
+<th>主要客户</th>
+<th style="text-align: center;">价格（估）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NVIDIA DRIVE Thor</strong></td>
+<td style="text-align: center;"><strong>2,000</strong></td>
+<td>4nm</td>
+<td>奔驰、比亚迪、小鹏</td>
+<td style="text-align: center;">~$500-600</td>
+</tr>
+<tr>
+<td>NVIDIA DRIVE Orin</td>
+<td style="text-align: center;">254</td>
+<td>7nm</td>
+<td>蔚来、理想、小鹏</td>
+<td style="text-align: center;">~$300-400</td>
+</tr>
+<tr>
+<td>Qualcomm Snapdragon Ride Flex</td>
+<td style="text-align: center;">50-100（下代2000）</td>
+<td>4nm</td>
+<td>奔驰、理想</td>
+<td style="text-align: center;">~$250-350</td>
+</tr>
+<tr>
+<td>Mobileye EyeQ Ultra</td>
+<td style="text-align: center;">176</td>
+<td>5nm</td>
+<td>极氪、大众</td>
+<td style="text-align: center;">~$200-300</td>
+</tr>
+<tr>
+<td><strong>华为 MDC 810</strong></td>
+<td style="text-align: center;"><strong>400</strong></td>
+<td>7nm</td>
+<td>问界、阿维塔</td>
+<td style="text-align: center;">不对外销售</td>
+</tr>
+<tr>
+<td>地平线 J6</td>
+<td style="text-align: center;">560</td>
+<td>先进制程</td>
+<td>比亚迪、理想</td>
+<td style="text-align: center;">~$150-250</td>
+</tr>
+<tr>
+<td>特斯拉 AI5（HW5）</td>
+<td style="text-align: center;">声称 AI4 的 40×</td>
+<td>—</td>
+<td>特斯拉</td>
+<td style="text-align: center;">自研自用</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.2 TOPS 是什么意思？</h3>
+<p><strong>TOPS = Trillions of Operations Per Second（每秒万亿次运算）</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>级别</th>
+<th style="text-align: center;">TOPS</th>
+<th>对应功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L2（部分自动化）</td>
+<td style="text-align: center;">10-30</td>
+<td>自适应巡航 + 车道保持</td>
+</tr>
+<tr>
+<td>L2+（高级辅助）</td>
+<td style="text-align: center;">30-100</td>
+<td>高速 NOA（自动变道/超车）</td>
+</tr>
+<tr>
+<td>L3（有条件自动驾驶）</td>
+<td style="text-align: center;">100-500</td>
+<td>城市 NOA（路口/红绿灯/行人）</td>
+</tr>
+<tr>
+<td>L4（高度自动驾驶）</td>
+<td style="text-align: center;">500-2000+</td>
+<td>真正的"无人驾驶"</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>💡 <strong>2000 TOPS 什么概念？</strong> NVIDIA Thor 一秒钟能做 2 万亿次计算。单芯片同时处理自动驾驶+座舱娱乐+驾驶员监控——取代过去需要 3-4 颗芯片才能完成的工作。</p>
+</blockquote>
+<h3>3.3 关键趋势</h3>
+<ol>
+<li><strong>单芯片多域融合</strong>：智驾 + 座舱 + 网关 → 一颗 SoC 搞定</li>
+<li><strong>Transformer 端到端</strong>：AI 大模型直接控制车，不再需要人工写规则</li>
+<li><strong>中国替代加速</strong>：华为昇腾/地平线替代 NVIDIA/Mobileye 的趋势不可逆</li>
+</ol>
+<hr />
+<h2>四、功率半导体：SiC 革命</h2>
+<h3>4.1 为什么 SiC 这么重要？</h3>
+<p>电动汽车的动力来自电池（直流电），但电机需要交流电。<strong>功率半导体就是"转换开关"</strong>——把直流变交流、升压降压、控制电流。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>技术</th>
+<th style="text-align: center;">效率</th>
+<th style="text-align: center;">成本</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传统硅 IGBT</td>
+<td style="text-align: center;">85-90%</td>
+<td style="text-align: center;">$50-100/车</td>
+<td>400V 平台、中低端车</td>
+</tr>
+<tr>
+<td><strong>SiC（碳化硅）</strong></td>
+<td style="text-align: center;"><strong>95-98%</strong></td>
+<td style="text-align: center;"><strong>$300-400/车</strong></td>
+<td>800V 快充、高性能车</td>
+</tr>
+<tr>
+<td>GaN（氮化镓）</td>
+<td style="text-align: center;">95%+</td>
+<td style="text-align: center;">$50-100/车</td>
+<td>车载充电器（OBC）</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>💡 <strong>800V 高压快充 = 必须用 SiC</strong>。"充电 15 分钟跑 400 公里"靠的就是 SiC。</p>
+</blockquote>
+<h3>4.2 SiC 市场格局</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">排名</th>
+<th>公司</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td><strong>STMicroelectronics（意法）</strong></td>
+<td>特斯拉供应商，意大利建厂 $55亿</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td><strong>英飞凌（Infineon）</strong></td>
+<td>德国 Dresden 扩产 $49亿</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>Wolfspeed</td>
+<td>美国纯 SiC 公司</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>ROHM（罗姆）</td>
+<td>日本 SiC 龙头</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td><strong>比亚迪半导体</strong></td>
+<td>自研自供，垂直整合</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>🔑 比亚迪是目前全球唯一实现 SiC 全产业链自研自供的车企。</p>
+</blockquote>
+<h3>4.3 SiC 为何短缺？</h3>
+<ul>
+<li>晶圆生长极慢（一周才长几厘米）</li>
+<li>缺陷率高（SiC 晶体比硅更难做完美）</li>
+<li>需求爆发（每辆 800V 车都要 SiC）</li>
+</ul>
+<hr />
+<h2>五、MCU：车辆的"毛细血管"</h2>
+<h3>5.1 MCU 是什么？</h3>
+<p><strong>MCU（微控制器）= 微型计算机</strong>，负责执行单一、简单的控制任务。一辆车有几十上百颗 MCU：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>位置</th>
+<th>MCU 功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>车窗</td>
+<td>控制升降电机</td>
+</tr>
+<tr>
+<td>雨刷</td>
+<td>控制雨刷速度</td>
+</tr>
+<tr>
+<td>座椅</td>
+<td>记忆位置/加热</td>
+</tr>
+<tr>
+<td>发动机</td>
+<td>喷油/点火时机</td>
+</tr>
+<tr>
+<td>刹车</td>
+<td>ABS/ESC 防抱死</td>
+</tr>
+<tr>
+<td>空调</td>
+<td>温度/风速控制</td>
+</tr>
+</tbody>
+</table></div>
+<h3>5.2 主要 MCU 厂商</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th style="text-align: center;">排名</th>
+<th>公司</th>
+<th>总部</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td>NXP（恩智浦）</td>
+<td>荷兰</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td>Renesas（瑞萨）</td>
+<td>日本</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td>Infineon（英飞凌）</td>
+<td>德国</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td>STMicroelectronics</td>
+<td>意法</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td>TI（德州仪器）</td>
+<td>美国</td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td>Microchip</td>
+<td>美国</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>⚠️ 2020-2022 年全球"缺芯潮"就是 MCU 短缺——一辆车因为缺一颗 $1 的 MCU 而无法下线。</p>
+</blockquote>
+<h3>5.3 架构变革：从 50 个 MCU 到 3 个中央计算机</h3>
+<p>传统汽车：每个功能一个 MCU，靠 CAN 总线通信（慢、重、复杂）</p>
+<p>新架构（Zonal/域控）：</p>
+<div style="display:flex;flex-direction:column;gap:8px;margin:12px 0;font-size:13px;">
+<div style="background:#1a1a2e;color:#fff;border-radius:10px;padding:14px;text-align:center;font-weight:700;font-size:15px;">🧠 中央计算平台（2-3 颗强大 SoC）</div>
+<div style="display:flex;gap:8px;">
+<div style="flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;">⬅️ 左域控制器</div>
+<div style="flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;">➡️ 右域控制器</div>
+<div style="flex:1;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center;">⬆️ 前/后域控制器</div>
+</div>
+<div style="text-align:center;color:var(--muted);font-size:11px;">└ 少量 MCU 做执行 ┘</div>
+</div>
+
+<blockquote>
+<p>🔑 这是汽车行业最大的电子架构革命——线束减少 30%、重量降低、软件升级（OTA）成为可能。</p>
+</blockquote>
+<hr />
+<h2>六、软件定义汽车</h2>
+<h3>6.1 趋势</h3>
+<p>到 <strong>2029 年</strong>，预计 <strong>90%</strong> 的新车将是"软件定义汽车（SDV）"——芯片卖的不是硬件，而是后续的 OTA 升级和订阅服务。</p>
+<h3>6.2 各车企智驾芯片策略</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>车企</th>
+<th>策略</th>
+<th>芯片选择</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>特斯拉</td>
+<td>全自研</td>
+<td>AI5（HW5），三星+台积电双供</td>
+</tr>
+<tr>
+<td>比亚迪</td>
+<td>多供应商</td>
+<td>NVIDIA Orin + 地平线 + 自研</td>
+</tr>
+<tr>
+<td>蔚来</td>
+<td>旗舰自研</td>
+<td>神玑 NX9031（5nm 自研）+ NVIDIA Orin</td>
+</tr>
+<tr>
+<td>小鹏</td>
+<td>多线并进</td>
+<td>NVIDIA + 自研图灵芯片</td>
+</tr>
+<tr>
+<td>华为系</td>
+<td>全面自研</td>
+<td>MDC 平台（昇腾 AI 芯片）</td>
+</tr>
+<tr>
+<td>理想</td>
+<td>合作路线</td>
+<td>NVIDIA Thor（下一代）</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>🔑 <strong>一句话总结</strong>：未来 5 年，汽车产业的竞争不再只是"谁造的车好"，更是"谁的芯片强、谁的软件快"。</p>
+</blockquote>
+<hr />
+<p><em>报告完成日期：2026年7月14日</em><br />
+<em>数据来源：公开财报、行业报告</em></p></div></div><div class="tab-panel " id="panel-e"><div class="container"><blockquote>
+<p><strong>两个半导体世界的形成——全球供应链如何分裂，未来走向何方</strong></p>
+<p>数据基准：2025-2026</p>
+</blockquote>
+<hr />
+<h2>目录</h2>
+<ol>
+<li><a href="#一中美芯片战争">中美芯片战争全景</a></li>
+<li><a href="#二全球供应链分裂">全球供应链分裂</a></li>
+<li><a href="#三各国芯片战略">各国芯片战略</a></li>
+<li><a href="#四先进制程竞赛">先进制程竞赛：2nm 与 Beyond</a></li>
+<li><a href="#五AI芯片">AI 芯片：下一个战场</a></li>
+<li><a href="#六RISC-V">RISC-V：开源能打破 ARM 垄断吗？</a></li>
+<li><a href="#七趋势预测">2026-2030 趋势预测</a></li>
+</ol>
+<hr />
+<h2>一、中美芯片战争：不只是芯片</h2>
+<h3>1.1 为什么芯片是"21 世纪的石油"？</h3>
+<pre><code>芯片 → 智能手机（通信霸权）
+     → AI 大模型（信息霸权）
+     → 导弹/雷达/卫星（军事霸权）
+     → 智能汽车（制造业霸权）
+     → 高性能计算（科学霸权）
+</code></pre>
+<blockquote>
+<p>🔑 控制先进芯片制造 = 控制所有高端产业。这就是为什么美国把半导体当作"国家安全"问题，而不仅仅是贸易问题。</p>
+</blockquote>
+<h3>1.2 中美双方的战略目标</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>美国</th>
+<th>中国</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>短期目标</td>
+<td>阻止中国获得 AI 芯片和先进制造能力</td>
+<td>活下去——保证成熟制程自给</td>
+</tr>
+<tr>
+<td>中期目标</td>
+<td>维持 2-3 代技术领先</td>
+<td>7nm 自主量产 + AI 芯片可控</td>
+</tr>
+<tr>
+<td>长期目标</td>
+<td>锁定全球半导体秩序</td>
+<td>构建独立于美国的半导体生态</td>
+</tr>
+<tr>
+<td>核心武器</td>
+<td>设备禁运（ASML）+ EDA 断供</td>
+<td>市场（全球最大芯片消费国）+ 稀土</td>
+</tr>
+</tbody>
+</table></div>
+<h3>1.3 制裁的双刃剑效应</h3>
+<p><strong>对美国的好处：</strong><br />
+- 延缓中国 AI 军事应用 3-5 年<br />
+- 迫使盟友（日/韩/台/荷）站队</p>
+<p><strong>对美国的坏处：</strong><br />
+- 美国芯片公司丢了最大市场（中国买全球 35% 芯片）<br />
+- 加速中国自主替代——"制裁是最大的国家补贴"<br />
+- 全球半导体生态分裂——长期削弱美国体系效率</p>
+<p><strong>对中国的坏处：</strong><br />
+- 短期内芯片更贵、性能更差、良率更低<br />
+- 无法获得最先进 AI 训练芯片</p>
+<p><strong>对中国的好处：</strong><br />
+- 举国体制加速——"卡脖子"是最好的动员令<br />
+- 国产替代从"口号"变成"刚需"<br />
+- 培养了一代半导体人才</p>
+<hr />
+<h2>二、全球供应链分裂</h2>
+<h3>2.1 "两个半导体世界"正在形成</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;font-size:13px;">
+<div style="background:linear-gradient(135deg,#1a1a2e,#0f3460);color:#fff;border-radius:12px;padding:18px;">
+<div style="font-size:16px;font-weight:700;margin-bottom:10px;text-align:center;">🇺🇸 美国体系</div>
+<div style="margin-bottom:6px;"><b>设计</b> NVIDIA · Qualcomm · AMD</div>
+<div style="margin-bottom:6px;"><b>CPU架构</b> ARM · x86</div>
+<div style="margin-bottom:6px;"><b>制造</b> 台积电 · 三星 · Intel</div>
+<div style="margin-bottom:6px;"><b>设备</b> ASML · 应用材料 · Lam</div>
+<div style="margin-bottom:6px;"><b>EDA</b> Synopsys · Cadence</div>
+<div><b>材料</b> 日本（光刻胶等）</div>
+</div>
+<div style="background:linear-gradient(135deg,#b71c1c,#e63946);color:#fff;border-radius:12px;padding:18px;">
+<div style="font-size:16px;font-weight:700;margin-bottom:10px;text-align:center;">🇨🇳 中国体系</div>
+<div style="margin-bottom:6px;"><b>设计</b> 华为海思 · 海光 · 寒武纪</div>
+<div style="margin-bottom:6px;"><b>CPU架构</b> RISC-V + ARM（存量）</div>
+<div style="margin-bottom:6px;"><b>制造</b> 中芯国际 · 华虹 + 囤积DUV</div>
+<div style="margin-bottom:6px;"><b>设备</b> 北方华创 · 中微 + 囤积ASML DUV</div>
+<div style="margin-bottom:6px;"><b>EDA</b> 华大九天（距一线5-10年）</div>
+<div><b>材料</b> 国产光刻胶/硅片（刚起步）</div>
+</div>
+</div>
+
+<h3>2.2 谁在"站队"？</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>国家/地区</th>
+<th style="text-align: center;">站队</th>
+<th>关键资产</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>台湾 🇹🇼</td>
+<td style="text-align: center;">美国</td>
+<td><strong>台积电</strong>——全球 90% 先进芯片由它制造</td>
+</tr>
+<tr>
+<td>韩国 🇰🇷</td>
+<td style="text-align: center;">两边摇摆</td>
+<td>Samsung（存储+代工）、SK Hynix（HBM）</td>
+</tr>
+<tr>
+<td>日本 🇯🇵</td>
+<td style="text-align: center;">美国</td>
+<td>半导体材料/设备（光刻胶、硅片）</td>
+</tr>
+<tr>
+<td>荷兰 🇳🇱</td>
+<td style="text-align: center;">美国（被迫）</td>
+<td><strong>ASML</strong>——EUV 光刻机全球唯一</td>
+</tr>
+<tr>
+<td>马来西亚 🇲🇾</td>
+<td style="text-align: center;">两边赚钱</td>
+<td>封装测试重镇</td>
+</tr>
+<tr>
+<td>以色列 🇮🇱</td>
+<td style="text-align: center;">美国</td>
+<td>Intel 工厂 + 芯片设计</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>🔑 <strong>最大的地缘风险</strong>：如果台海发生冲突，台积电停产——全球半导体产业直接瘫痪。这是所有国家都不敢想的噩梦。</p>
+</blockquote>
+<hr />
+<h2>三、各国芯片战略</h2>
+<h3>3.1 美国《芯片与科学法案》（CHIPS Act）</h3>
+<ul>
+<li>投资 <strong>$527 亿</strong> 美元补贴本土芯片制造</li>
+<li>目标：2030 年美国产全球 20% 先进芯片（目前 ~10%）</li>
+<li>台积电在亚利桑那建厂（3nm）、Intel 在俄亥俄建厂、Samsung 在德州建厂</li>
+</ul>
+<h3>3.2 欧洲《芯片法案》（EU Chips Act）</h3>
+<ul>
+<li>投资超 <strong>$465 亿</strong> 美元</li>
+<li>目标：2030 年全球市占率从 8% → 20%</li>
+<li>英飞凌/ST/Bosch 扩建 SiC 产能</li>
+</ul>
+<h3>3.3 日本《半导体振兴计划》</h3>
+<ul>
+<li>补贴台积电熊本工厂（28nm→12nm）</li>
+<li>Rapidus：日本"国家队"攻关 2nm（与 IBM 合作）</li>
+<li>目标是重新成为半导体材料/设备强国</li>
+</ul>
+<h3>3.4 韩国"K-半导体战略"</h3>
+<ul>
+<li>Samsung 投资 $2,300 亿美元（20 年）</li>
+<li>SK Hynix 扩建 HBM 产线</li>
+<li>龙仁半导体集群——全球最大芯片产业园</li>
+</ul>
+<h3>3.5 中国"新型举国体制"</h3>
+<ul>
+<li><strong>国家大基金</strong>（三期总规模超 $600 亿美元）</li>
+<li>目标：2030 年芯片自给率 70%（目前 ~30%，含外资在华工厂）</li>
+<li>"十四五"重点：光刻机、EDA、先进制程</li>
+</ul>
+<hr />
+<h2>四、先进制程竞赛：2nm 与未来</h2>
+<h3>4.1 谁能做 2nm？</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>公司</th>
+<th>2nm 进度</th>
+<th style="text-align: center;">预期量产</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>台积电</strong></td>
+<td>2025 年试产，良率爬坡中</td>
+<td style="text-align: center;"><strong>2026 下半年</strong></td>
+</tr>
+<tr>
+<td>Samsung</td>
+<td>GAA 技术追赶中</td>
+<td style="text-align: center;">2027+</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>18A 节点（≈2nm）</td>
+<td style="text-align: center;">2025-2026</td>
+</tr>
+<tr>
+<td>Rapidus（日本）</td>
+<td>与 IBM 合作研发</td>
+<td style="text-align: center;">2027+</td>
+</tr>
+</tbody>
+</table></div>
+<h3>4.2 2nm 之后？</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>技术</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GAA（Gate-All-Around）</strong></td>
+<td>栅极从三面包围→四面全包围，性能提升 30%</td>
+</tr>
+<tr>
+<td><strong>背面供电（Backside Power）</strong></td>
+<td>电源线从芯片背面走，不占用信号通道</td>
+</tr>
+<tr>
+<td><strong>CFET（互补 FET）</strong></td>
+<td>把 n型和 p型晶体管纵向堆叠——晶体管密度翻倍</td>
+</tr>
+<tr>
+<td><strong>1.4nm / 1nm</strong></td>
+<td>台积电/三星已进入研发</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>💡 <strong>物理极限在哪？</strong> 硅原子的直径约 0.2nm。当晶体管缩小到原子级别，量子隧穿效应会导致电子"乱跑"——摩尔定律的物质基础正在消失。但新材料（二维材料、碳纳米管）可能在 2030 年代接棒。</p>
+</blockquote>
+<hr />
+<h2>五、AI 芯片：下一个战场</h2>
+<h3>5.1 AI 芯片市场格局</h3>
+<pre><code>AI 训练芯片（数据中心）
+  └─ NVIDIA H100/B200  &gt;90% ← 绝对垄断
+  └─ AMD MI300X          ~5%
+  └─ Google TPU          自研自用
+  └─ 华为昇腾 910c       中国市场替代
+
+AI 推理芯片（端侧/边缘）
+  └─ Qualcomm AI Engine   手机端 AI
+  └─ Apple Neural Engine  iPhone/Mac 端 AI
+  └─ Intel Gaudi           数据中心推理
+  └─ 寒武纪                中国 AI 推理
+</code></pre>
+<h3>5.2 AI 芯片的未来方向</h3>
+<ol>
+<li><strong>更大规模</strong>：NVIDIA 下一代 Rubin 平台（2026），单芯片算力再翻倍</li>
+<li><strong>NPU 专用化</strong>：不只 GPU，专用 AI 加速器（NPU/TPU）将大幅增长</li>
+<li><strong>端侧 AI</strong>：手机/PC/汽车本地跑 AI 模型，不需要联网</li>
+<li><strong>存算一体</strong>：把存储和计算做在同一颗芯片上——消除"内存墙"</li>
+</ol>
+<hr />
+<h2>六、RISC-V：开源能打破 ARM 垄断吗？</h2>
+<blockquote>
+<p><strong>x86 统治 PC、ARM 统治手机——RISC-V 想做那个"谁都不统治、谁都能用"的第三极。</strong></p>
+</blockquote>
+
+<h3>6.1 什么是 RISC-V？</h3>
+<p>CPU 需要一套"指令集架构"（ISA）——这是软件和硬件之间的"语言"。目前全球 CPU 由两套指令集统治：</p>
+<div class="table-wrap"><table>
+<thead><tr><th>指令集</th><th>拥有者</th><th>模式</th><th>统治领域</th></tr></thead>
+<tbody>
+<tr><td><strong>x86</strong></td><td>Intel / AMD 交叉授权</td><td>封闭，不对外授权</td><td>PC、服务器（~70%）</td></tr>
+<tr><td><strong>ARM</strong></td><td>ARM 公司（软银）</td><td>收费授权（每颗芯片抽成）</td><td>手机、平板、IoT（~95%）</td></tr>
+<tr><td><strong>RISC-V</strong></td><td><strong>无——开源社区</strong></td><td><strong>完全免费、开源</strong></td><td>IoT、嵌入式 → 正在攻入 AI/服务器</td></tr>
+</tbody>
+</table></div>
+
+<h3>6.2 为什么 RISC-V 是"地缘政治的破局者"？</h3>
+<p>ARM 虽然是英国公司，但被日本软银控制，且 ARM 的很多核心技术在美国研发——受美国出口管制约束。<strong>RISC-V 是一个开源标准</strong>，任何人都能免费使用、自由修改，不经过任何国家的审批。</p>
+
+<blockquote>
+<p>🔑 <strong>对中国意味着什么</strong>：华为被制裁后买不了 ARM 最新架构的授权。但 RISC-V 不受制裁——它是开源代码，就像 Linux 一样，美国不能"禁止你用 Linux"。中国正把 RISC-V 当作"去 ARM 化"的长期路径。</p>
+</blockquote>
+
+<h3>6.3 RISC-V 现在弱在哪？</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>维度</th><th>ARM（现状）</th><th>RISC-V（现状）</th></tr></thead>
+<tbody>
+<tr><td><strong>生态成熟度</strong></td><td>30 年积累，所有主流 OS/App 原生支持</td><td>Android 刚适配，大量 App 不兼容</td></tr>
+<tr><td><strong>性能峰值</strong></td><td>可对标 Apple M 系列高性能</td><td>目前以中低端为主，高端正在追赶</td></tr>
+<tr><td><strong>手机 SoC</strong></td><td>高通/苹果/联发科全用 ARM</td><td>尚无商用手机芯片</td></tr>
+<tr><td><strong>AI/服务器</strong></td><td>NVIDIA Grace、AWS Graviton</td><td>阿里巴巴玄铁 C930、Ventana——刚起步</td></tr>
+<tr><td><strong>开发者数量</strong></td><td>~1,500 万 ARM 开发者</td><td>快速增长中，但仅 ARM 的零头</td></tr>
+<tr><td><strong>最大优势</strong></td><td>生态完善、"能用"</td><td><strong>免费 + 不受制裁 + 可自由定制</strong></td></tr>
+</tbody>
+</table></div>
+
+<h3>6.4 关键玩家</h3>
+<div style="display:flex;flex-direction:column;gap:8px;margin:16px 0;font-size:13px;">
+<div style="background:var(--card);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:var(--accent);">阿里巴巴（达摩院）</b> — 玄铁（XuanTie）系列——中国最强的 RISC-V CPU IP，已用于阿里云数据中心</div>
+<div style="background:var(--card);border-left:4px solid #1d72b8;border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:#1d72b8;">SiFive</b>（美国） — RISC-V 商业化先驱，融资超 $3.5 亿，Intel 是投资方</div>
+<div style="background:var(--card);border-left:4px solid #2e7d32;border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:#2e7d32;">Ventana / Tenstorrent</b>（美国） — 做 RISC-V 服务器芯片，目标替代 x86</div>
+<div style="background:var(--card);border-left:4px solid #f57c00;border-radius:0 10px 10px 0;padding:10px 14px;"><b style="color:#f57c00;">RISC-V 国际基金会</b> — 总部瑞士（刻意避开美国法律管辖），管理 RISC-V 标准</div>
+</div>
+
+<blockquote>
+<p>🔑 <strong>一句话</strong>：RISC-V 现在还打不过 ARM——但它在 IoT 和嵌入式领域已经赢了（成本为零 + 自由定制）。从 IoT → 手机 → 服务器，这场"农村包围城市"的战役需要至少 5-10 年。但一旦成功，ARM 的 95% 手机垄断就会被撕开缺口。</p>
+</blockquote>
+
+<hr />
+<h2>七、2026-2030 趋势预测</h2>
+<h3>7.1 五个确定性趋势</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>趋势</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. AI 吞噬半导体</strong></td>
+<td>2029 年 AI 芯片占全球半导体销售 50%+</td>
+</tr>
+<tr>
+<td><strong>2. 全球两个生态</strong></td>
+<td>中美各自构建独立半导体供应链，成本和效率双输</td>
+</tr>
+<tr>
+<td><strong>3. 汽车成第二战场</strong></td>
+<td>汽车芯片增速是整体市场 5 倍，2030 年 1,320 亿$</td>
+</tr>
+<tr>
+<td><strong>4. 台积电仍是唯一王者</strong></td>
+<td>3nm/2nm 垄断至少维持到 2028</td>
+</tr>
+<tr>
+<td><strong>5. 中国"能用"但不"好用"</strong></td>
+<td>2028 年前中国无法量产 7nm 以下芯片</td>
+</tr>
+</tbody>
+</table></div>
+<h3>7.2 三个不确定性问题</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>可能走向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>台海局势？</strong></td>
+<td>稳定→全球半导体照旧；动荡→供应链崩塌</td>
+</tr>
+<tr>
+<td><strong>摩尔定律还能走多远？</strong></td>
+<td>2030 年前硅基芯片会碰到物理极限</td>
+</tr>
+<tr>
+<td><strong>中国光刻机何时突破？</strong></td>
+<td>乐观 2027（DUV）、悲观 2035（EUV）</td>
+</tr>
+</tbody>
+</table></div>
+<h3>7.3 关键数字汇总</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025 全球半导体</td>
+<td>7,930亿$</td>
+</tr>
+<tr>
+<td>NVIDIA AI 芯片市占率</td>
+<td>&gt;90%</td>
+</tr>
+<tr>
+<td>台积电先进制程份额</td>
+<td>&gt;90%</td>
+</tr>
+<tr>
+<td>中国设备国产化率</td>
+<td>21%（2021 年 10%）</td>
+</tr>
+<tr>
+<td>中国光刻机落后</td>
+<td>~20 年</td>
+</tr>
+<tr>
+<td>汽车芯片 2030</td>
+<td>1,320亿$</td>
+</tr>
+<tr>
+<td>一座先进晶圆厂造价</td>
+<td>200-300亿$</td>
+</tr>
+<tr>
+<td>一台 EUV 光刻机</td>
+<td>3.8亿$ / 180吨</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>🔑 <strong>最后的话</strong>：半导体是 21 世纪最重要的战略产业。全球半导体正从"一个世界"走向"两个世界"——效率降低，但韧性增加。未来十年，谁能在这场硅基战争中取胜，谁就掌握了从 AI 到汽车到军事的全面优势。</p>
+</blockquote>
+<hr />
+<p><em>报告完成日期：2026年7月14日</em><br />
+<em>数据来源：Gartner、Yole Group、Barclays、各公司财报</em></p></div></div>
+</div>
+
+<div class="unified-footer">
+  <p style="margin-bottom:12px;"><a href="2026汽车产业认知手册.html" style="display:inline-block;padding:8px 20px;background:var(--accent);color:#fff;text-decoration:none;border-radius:16px;font-weight:600;font-size:13px;">🚗 查看汽车产业认知手册 →</a></p>
+  <p><strong>2026 半导体产业认知手册</strong></p>
+  <p>本手册整合五份深度研究报告，数据基准为 2025 全年 + 2026 年上半年</p>
+  <p>数据来源：Gartner、Yole Group、Barclays、公开财报 | 仅供学习参考</p>
+</div>
+
+<script>
+function switchTab(prefix) {
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+  var btn = document.querySelector('.tab-btn[data-tab="'+prefix+'"]');
+  var panel = document.getElementById('panel-'+prefix);
+  if(btn) btn.classList.add('active');
+  if(panel) { panel.classList.add('active');window.scrollTo({top:0,behavior:'smooth'}); }
+}
+</script>
+
+</body>
+</html>
