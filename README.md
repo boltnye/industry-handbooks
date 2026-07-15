@@ -37,3 +37,7 @@
 ## 🔗 相关资源
 
 - [GitHub Pages 在线预览](https://boltnye.github.io/industry-handbooks/)（上传后启用 Pages 即可）
+
+---
+
+作者：boltnye | 仅供学习参考，持续更新中
